@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Panimávida · Rho — Análisis de costo marginal y PPA de compra</title>
+<meta name="description" content="Por qué Rho no firma hoy la oferta de PPA de compra a 28 USD/MWh en el nodo Panimávida. Análisis con datos reales del Coordinador Eléctrico Nacional, 2022–2026." />
+<link rel="icon" href="assets/rho-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav" class="nav">
+  <a class="nav__brand" href="#hero"><img src="assets/rho-full.png" alt="Rho Generación" /></a>
+  <div class="nav__links">
+    <a href="#cifras">Cifras</a>
+    <a href="#tendencia">Tendencia</a>
+    <a href="#estructural">El patrón</a>
+    <a href="#logica">La lógica</a>
+    <a href="#propuesta">Propuesta</a>
+  </div>
+</nav>
+
+<!-- PROGRESS DOTS -->
+<aside class="dots" id="dots" aria-hidden="true"></aside>
+
+<!-- HERO -->
+<header class="hero section" id="hero">
+  <div class="blob blob--a"></div>
+  <div class="blob blob--b"></div>
+  <div class="blob blob--c"></div>
+  <div class="hero__inner">
+    <div class="hero__eyebrow reveal">NODO PANIMÁVIDA · 13.2 kV</div>
+    <h1 class="hero__title reveal">El precio de la energía<br/>en este nodo es <span class="grad">cero</span>.</h1>
+    <p class="hero__sub reveal">Por eso no firmamos la oferta de PPA de compra a 28 USD/MWh.<br/>Una decisión deliberada, respaldada por datos reales del mercado eléctrico.</p>
+    <div class="hero__cta reveal">
+      <a href="#cifras" class="btn btn--primary">Ver el análisis</a>
+      <span class="hero__meta">Costos marginales reales · Coordinador Eléctrico Nacional · 2022–2026</span>
+    </div>
+  </div>
+  <a href="#consulta" class="scroll-hint" aria-label="Bajar">
+    <span></span>
+  </a>
+</header>
+
+<!-- CONSULTA -->
+<section class="section statement" id="consulta">
+  <div class="wrap">
+    <div class="tag reveal">La consulta del banco</div>
+    <p class="statement__q reveal">“¿El stand-alone de Panimávida<br/>cuenta con un <em>PPA de compra</em>?”</p>
+  </div>
+</section>
+
+<!-- RESPUESTA -->
+<section class="section statement statement--answer" id="respuesta">
+  <div class="wrap">
+    <div class="tag tag--green reveal">Nuestra respuesta</div>
+    <p class="statement__a reveal">No. Y es <span class="grad">deliberado</span>.</p>
+    <p class="statement__lead reveal">Existe una oferta a 28 USD/MWh, pero el costo marginal del propio nodo está en <strong>0 USD/MWh</strong> durante la mayor parte del día. Abastecerse a spot es más barato y preserva el valor del proyecto.</p>
+  </div>
+</section>
+
+<!-- CIFRAS -->
+<section class="section" id="cifras">
+  <div class="wrap">
+    <h2 class="h2 reveal">El dilema, en números</h2>
+    <p class="sub reveal">Comprometer 28 USD/MWh cuando el mercado del nodo está en cero no tiene sentido económico.</p>
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="stat__num"><span class="cnt" data-to="28">0</span><span class="stat__unit">USD/MWh</span></div>
+        <div class="stat__label">Oferta de PPA de compra — el precio fijo que pagaríamos.</div>
+      </div>
+      <div class="stat reveal stat--accent">
+        <div class="stat__num"><span class="stat__tilde">~</span>0<span class="stat__unit">USD/MWh</span></div>
+        <div class="stat__label">Costo spot del nodo en gran parte de las horas solares.</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__num"><span class="cnt" data-to="79">0</span><span class="stat__unit">%</span></div>
+        <div class="stat__label">De las horas solares en exactamente 0 USD/MWh (2024).</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__num"><span class="cnt" data-to="38064">0</span></div>
+        <div class="stat__label">Horas reales de mercado analizadas (2022–2026).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TENDENCIA -->
+<section class="section section--soft" id="tendencia">
+  <div class="wrap">
+    <div class="tag reveal">Qué muestran los datos</div>
+    <h2 class="h2 reveal">El costo marginal viene a la baja</h2>
+    <p class="sub reveal">Promedio mensual del nodo, 2022–2026, contra la oferta de 28 USD/MWh. Desde 2023 cruza por debajo buena parte del año.</p>
+    <div class="card chart-card reveal">
+      <div id="chartMensual" class="chart"></div>
+    </div>
+    <div class="trend-foot reveal">
+      <span><b>108</b> → <b>44</b> USD/MWh</span> promedio anual del nodo, de 2022 a 2026.
+    </div>
+  </div>
+</section>
+
+<!-- ESTRUCTURAL -->
+<section class="section" id="estructural">
+  <div class="wrap">
+    <div class="tag reveal">El patrón estructural</div>
+    <h2 class="h2 reveal">El precio cero vive en las horas de sol</h2>
+    <p class="sub reveal">Porcentaje de horas con costo marginal en 0, según la hora del día. Cada año, la mayoría de las horas solares (09–18 h) se transan a cero.</p>
+    <div class="card chart-card reveal">
+      <div id="chartCero" class="chart"></div>
+    </div>
+    <h3 class="h3 reveal">Mapa de calor — intensidad del precio cero</h3>
+    <p class="sub reveal">% de horas en 0 USD/MWh por hora del día (eje horizontal) y año (eje vertical). El bloque verde intenso del mediodía es el desacople del nodo.</p>
+    <div class="card chart-card reveal">
+      <div id="chartHeat" class="chart chart--heat"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGICA -->
+<section class="section section--soft" id="logica">
+  <div class="wrap">
+    <div class="tag reveal">La lógica económica</div>
+    <h2 class="h2 reveal">Dos caminos, un resultado claro</h2>
+    <div class="paths">
+      <div class="path path--bad reveal">
+        <div class="path__head"><span class="path__icon">✕</span> Firmar el PPA hoy</div>
+        <ul>
+          <li>Comprar energía a 28 USD/MWh fijos.</li>
+          <li>Pagar muy por encima del spot casi todo el día.</li>
+          <li>Renunciar a los años de energía a ~0 USD/MWh.</li>
+          <li class="path__kick path__kick--bad">Destruye valor del proyecto.</li>
+        </ul>
+      </div>
+      <div class="path path--good reveal">
+        <div class="path__head"><span class="path__icon">✓</span> Abastecerse a spot</div>
+        <ul>
+          <li>Energía a ~0 USD/MWh gran parte del día.</li>
+          <li>Captura los años de precios deprimidos del nodo.</li>
+          <li>Mantiene flexibilidad para firmar cuando convenga.</li>
+          <li class="path__kick path__kick--good">Preserva el valor del proyecto.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORIZONTE -->
+<section class="section" id="horizonte">
+  <div class="wrap">
+    <div class="tag reveal">El horizonte</div>
+    <h2 class="h2 reveal">¿Cuándo sí conviene firmar? Hacia 2030</h2>
+    <div class="timeline">
+      <div class="tl reveal"><div class="tl__year">2026–2029</div><p>Spot deprimido (~0 USD/MWh en horas solares). Nos abastecemos a spot.</p></div>
+      <div class="tl reveal"><div class="tl__year">≈ 2030</div><p>Entran en operación los refuerzos de transmisión previstos para la zona.</p></div>
+      <div class="tl reveal"><div class="tl__year">Post-2030</div><p>El nodo se recupera y el costo marginal vuelve a niveles normales.</p></div>
+      <div class="tl reveal tl--final"><div class="tl__year">Firma del PPA</div><p>Recién ahí la compra a 28 USD/MWh resulta conveniente y la evaluaríamos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPUESTA -->
+<section class="section propuesta" id="propuesta">
+  <div class="prop-glow"></div>
+  <div class="wrap">
+    <div class="tag tag--green reveal">La propuesta</div>
+    <h2 class="prop__title reveal">Abastecer a spot hoy.<br/>Reevaluar el PPA hacia 2030.</h2>
+    <div class="prop__list">
+      <div class="prop__item reveal"><span class="prop__chk">✓</span> No suscribir la oferta de compra a 28 USD/MWh en las condiciones actuales del nodo.</div>
+      <div class="prop__item reveal"><span class="prop__chk">✓</span> Abastecerse a costo spot (~0 USD/MWh gran parte del día) mientras persista el desacople.</div>
+      <div class="prop__item reveal"><span class="prop__chk">✓</span> Reevaluar la firma hacia 2030, cuando el nodo recupere sus niveles de precio.</div>
+    </div>
+    <p class="prop__close reveal">Esta decisión preserva el valor del proyecto sin cerrar la puerta a un PPA futuro.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <img src="assets/rho-full.png" alt="Rho Generación" class="footer__logo" />
+    <div class="footer__txt">
+      <p>Fuente: Coordinador Eléctrico Nacional — costos marginales reales del nodo BA S/E Panimávida 13.2 kV BP1.</p>
+      <p class="footer__muted">Período: 2022 — 22 may 2026 · Horas en formato 0–23 · 2024 sin 15–31 jul · 2026 con datos hasta 22 may.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
