@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Panimávida · Rho — Análisis de costo marginal y PPA de compra</title>
-<meta name="description" content="Por qué Rho no firma hoy la oferta de PPA de compra a 28 USD/MWh en el nodo Panimávida. Análisis con datos reales del Coordinador Eléctrico Nacional, 2022–2026." />
+<title>Panimávida 13.2 kV · Análisis crediticio — Rho Generación</title>
+<meta name="description" content="Análisis crediticio del nodo Panimávida 13.2 kV: por qué no es óptimo suscribir hoy la oferta de PPA de compra a 28 USD/MWh. Basado en 38.064 horas reales del Coordinador Eléctrico Nacional (2022–2026)." />
 <link rel="icon" href="assets/rho-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,11 +17,11 @@
 <nav id="nav" class="nav">
   <a class="nav__brand" href="#hero"><img src="assets/rho-full.png" alt="Rho Generación" /></a>
   <div class="nav__links">
-    <a href="#cifras">Cifras</a>
+    <a href="#cifras">Hechos clave</a>
     <a href="#tendencia">Tendencia</a>
-    <a href="#estructural">El patrón</a>
-    <a href="#logica">La lógica</a>
-    <a href="#propuesta">Propuesta</a>
+    <a href="#estructural">Perfil intradiario</a>
+    <a href="#sensibilidad">Sensibilidad</a>
+    <a href="#propuesta">Recomendación</a>
     <a href="#descargas">Descargas</a>
   </div>
 </nav>
@@ -35,12 +35,12 @@
   <div class="blob blob--b"></div>
   <div class="blob blob--c"></div>
   <div class="hero__inner">
-    <div class="hero__eyebrow reveal">NODO PANIMÁVIDA · 13.2 kV</div>
-    <h1 class="hero__title reveal">El precio de la energía<br/>en este nodo es <span class="grad">cero</span>.</h1>
-    <p class="hero__sub reveal">Por eso no es óptimo firmar hoy la oferta de PPA de compra a 28 USD/MWh.<br/>Una decisión fundamentada en 38.064 horas reales del Coordinador Eléctrico Nacional.</p>
+    <div class="hero__eyebrow reveal">ANÁLISIS CREDITICIO · NODO PANIMÁVIDA 13.2 kV</div>
+    <h1 class="hero__title reveal">Costo marginal del nodo y decisión<br/>sobre el <span class="grad">PPA de compra</span>.</h1>
+    <p class="hero__sub reveal">Sustentado en <b>38.064 horas reales</b> publicadas por el Coordinador Eléctrico Nacional, el proyecto stand-alone Panimávida no suscribe — en las condiciones actuales del nodo — la oferta de PPA de compra a 28 USD/MWh.<br/><span style="color:#86868b;">Material preparado para el Comité de Crédito del Banco.</span></p>
     <div class="hero__cta reveal">
       <a href="#cifras" class="btn btn--primary">Ver el análisis</a>
-      <span class="hero__meta">Costos marginales reales · Coordinador Eléctrico Nacional · 2022–2026</span>
+      <span class="hero__meta">Período 2022 — 22 may 2026 · Versión 2.1</span>
     </div>
   </div>
   <a href="#consulta" class="scroll-hint" aria-label="Bajar">
@@ -51,7 +51,7 @@
 <!-- CONSULTA -->
 <section class="section statement" id="consulta">
   <div class="wrap">
-    <div class="tag reveal">La consulta del banco</div>
+    <div class="tag reveal">Consulta del Banco</div>
     <p class="statement__q reveal">“¿El stand-alone de Panimávida<br/>cuenta con un <em>PPA de compra</em>?”</p>
   </div>
 </section>
@@ -59,33 +59,33 @@
 <!-- RESPUESTA -->
 <section class="section statement statement--answer" id="respuesta">
   <div class="wrap">
-    <div class="tag tag--green reveal">Nuestra respuesta</div>
-    <p class="statement__a reveal">No. Y es <span class="grad">deliberado</span>.</p>
-    <p class="statement__lead reveal">Existe una oferta a 28 USD/MWh, pero el costo marginal del propio nodo está en <strong>0 USD/MWh</strong> durante la mayor parte del día. Abastecerse a spot es más barato y preserva el valor del proyecto.</p>
+    <div class="tag tag--green reveal">Respuesta del proyecto</div>
+    <p class="statement__a reveal">No, y la decisión <span class="grad">es económicamente fundamentada</span>.</p>
+    <p class="statement__lead reveal">Sobre la mesa existe una oferta de PPA a <strong>28 USD/MWh</strong>. El costo marginal del nodo Panimávida 13.2 kV (BP1) se ubica de manera estructural por debajo de esa referencia durante la mayor parte de las horas solares. Suscribir el PPA hoy implicaría adquirir energía por encima del precio del nodo en una fracción material del día, deteriorando el costo unitario de energía del proyecto.</p>
   </div>
 </section>
 
 <!-- CIFRAS -->
 <section class="section" id="cifras">
   <div class="wrap">
-    <h2 class="h2 reveal">El dilema, en números</h2>
-    <p class="sub reveal">Comprometer 28 USD/MWh cuando el mercado del nodo está en cero no tiene sentido económico.</p>
+    <h2 class="h2 reveal">Hechos clave</h2>
+    <p class="sub reveal">Indicadores del año más reciente disponible (2026, datos hasta el 22 de mayo).</p>
     <div class="stats">
       <div class="stat reveal">
         <div class="stat__num"><span class="cnt" data-to="28">0</span><span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Oferta de PPA de compra — el precio fijo que pagaríamos.</div>
+        <div class="stat__label">Oferta del PPA de compra — precio fijo propuesto al proyecto.</div>
       </div>
       <div class="stat reveal stat--accent">
-        <div class="stat__num"><span class="stat__tilde">~</span>0<span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Costo spot del nodo en gran parte de las horas solares.</div>
+        <div class="stat__num"><span class="cnt" data-to="44">0</span><span class="stat__unit">USD/MWh</span></div>
+        <div class="stat__label">Promedio anual del costo marginal del nodo · 2026.</div>
       </div>
       <div class="stat reveal">
         <div class="stat__num"><span class="cnt" data-to="17">0</span><span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Promedio del costo marginal en horas solares — 2026 (vs. 28 del PPA).</div>
+        <div class="stat__label">Promedio en banda solar (09–17 h) · 2026 — 11 USD/MWh bajo la oferta.</div>
       </div>
       <div class="stat reveal">
         <div class="stat__num"><span class="cnt" data-to="38064">0</span></div>
-        <div class="stat__label">Horas reales de mercado analizadas (2022–2026).</div>
+        <div class="stat__label">Horas reales de mercado analizadas (2022 — 22 may 2026).</div>
       </div>
     </div>
   </div>
@@ -94,14 +94,14 @@
 <!-- TENDENCIA -->
 <section class="section section--soft" id="tendencia">
   <div class="wrap">
-    <div class="tag reveal">Qué muestran los datos</div>
-    <h2 class="h2 reveal">El costo marginal viene a la baja</h2>
-    <p class="sub reveal">Promedio mensual del nodo, 2022–2026, contra la oferta de 28 USD/MWh. Desde 2023 cruza por debajo buena parte del año.</p>
+    <div class="tag reveal">Evidencia · 4.1</div>
+    <h2 class="h2 reveal">Tendencia mensual del precio del nodo</h2>
+    <p class="sub reveal">Promedio mensual del costo marginal del nodo (USD/MWh), contrastado con la oferta del PPA a 28 USD/MWh. Desde 2023, el precio cruza por debajo de la referencia durante una fracción creciente del año.</p>
     <div class="card chart-card reveal">
       <div id="chartMensual" class="chart"></div>
     </div>
     <div class="trend-foot reveal">
-      <span><b>108</b> → <b>44</b> USD/MWh</span> promedio anual del nodo, de 2022 a 2026.
+      Promedio anual: <span><b>108</b> → <b>44</b> USD/MWh</span> entre 2022 y 2026 — descenso acumulado de ~64 USD/MWh.
     </div>
   </div>
 </section>
@@ -109,42 +109,73 @@
 <!-- ESTRUCTURAL -->
 <section class="section" id="estructural">
   <div class="wrap">
-    <div class="tag reveal">El patrón estructural</div>
-    <h2 class="h2 reveal">El precio del nodo cae a la franja solar</h2>
-    <p class="sub reveal">Costo marginal promedio por hora del día (USD/MWh), por año. En la banda solar (09–17 h) el precio se ubica muy por debajo de la oferta del PPA (28 USD/MWh).</p>
+    <div class="tag reveal">Evidencia · 4.2–4.4</div>
+    <h2 class="h2 reveal">Perfil intradiario y mapa de calor del precio</h2>
+    <p class="sub reveal">El desacople del nodo se concentra en la banda solar (09–17 h), donde el precio se sitúa de manera estructural por debajo de la oferta del PPA. El fenómeno es estable desde 2023.</p>
     <div class="card chart-card reveal">
       <div id="chartCero" class="chart"></div>
     </div>
     <h3 class="h3 reveal">Mapa de calor — precio del nodo (USD/MWh)</h3>
-    <p class="sub reveal">Precio promedio por hora (eje horizontal) y año (eje vertical). Tonos verdes indican precios por debajo de la oferta del PPA (28 USD/MWh) — favorables al abastecimiento spot; ámbar y rojo, por encima.</p>
+    <p class="sub reveal">Matriz año × hora del precio promedio. Verdes: precios por debajo de la oferta del PPA (28 USD/MWh) — favorables al abastecimiento spot. Ámbar y rojo: por encima. El bloque verde central representa el bloque económicamente más eficiente para el proyecto.</p>
     <div class="card chart-card reveal">
       <div id="chartHeat" class="chart chart--heat"></div>
     </div>
   </div>
 </section>
 
-<!-- LOGICA -->
-<section class="section section--soft" id="logica">
+<!-- SENSIBILIDAD -->
+<section class="section section--soft" id="sensibilidad">
   <div class="wrap">
-    <div class="tag reveal">La lógica económica</div>
-    <h2 class="h2 reveal">Dos caminos, un resultado claro</h2>
+    <div class="tag reveal">Análisis · 5</div>
+    <h2 class="h2 reveal">Sensibilidad sobre el precio del PPA</h2>
+    <p class="sub reveal">Ahorro promedio en banda solar (USD/MWh) = mean(max(0, P − spot)), para precios alternativos de PPA entre 22 y 34 USD/MWh. La sensibilidad es positiva en todos los escenarios: la conclusión es robusta aún ante una renegociación moderada del precio ofrecido.</p>
+    <div class="sens-card reveal">
+      <table class="sens-table">
+        <thead>
+          <tr>
+            <th>Año</th>
+            <th>P = 22</th>
+            <th>P = 25</th>
+            <th class="sens-th--mark">P = 28</th>
+            <th>P = 30</th>
+            <th>P = 34</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><b>2022</b></td><td>10</td><td>12</td><td class="sens-td--mark">13</td><td>14</td><td>16</td></tr>
+          <tr><td><b>2023</b></td><td>15</td><td>17</td><td class="sens-td--mark">19</td><td>21</td><td>23</td></tr>
+          <tr><td><b>2024</b></td><td>18</td><td>20</td><td class="sens-td--mark">22</td><td>24</td><td>27</td></tr>
+          <tr><td><b>2025</b></td><td>13</td><td>15</td><td class="sens-td--mark">16</td><td>18</td><td>20</td></tr>
+          <tr><td><b>2026</b></td><td>14</td><td>16</td><td class="sens-td--mark">18</td><td>20</td><td>23</td></tr>
+        </tbody>
+      </table>
+      <p class="sens-note">Columna destacada: oferta vigente del PPA (28 USD/MWh).</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOGICA -->
+<section class="section" id="logica">
+  <div class="wrap">
+    <div class="tag reveal">Lectura económica</div>
+    <h2 class="h2 reveal">Dos alternativas, un resultado claro</h2>
     <div class="paths">
       <div class="path path--bad reveal">
-        <div class="path__head"><span class="path__icon">✕</span> Firmar el PPA hoy</div>
+        <div class="path__head"><span class="path__icon">✕</span> Suscribir el PPA hoy</div>
         <ul>
-          <li>Comprar energía a 28 USD/MWh fijos.</li>
-          <li>Pagar muy por encima del spot casi todo el día.</li>
-          <li>Renunciar a los años de energía a ~0 USD/MWh.</li>
+          <li>Adquirir energía a 28 USD/MWh fijos.</li>
+          <li>Pagar por encima del precio del nodo en una fracción material del día.</li>
+          <li>Renunciar al ahorro estructural de la banda solar.</li>
           <li class="path__kick path__kick--bad">No es la alternativa económicamente óptima.</li>
         </ul>
       </div>
       <div class="path path--good reveal">
         <div class="path__head"><span class="path__icon">✓</span> Abastecerse a spot</div>
         <ul>
-          <li>Energía a ~0 USD/MWh gran parte del día.</li>
-          <li>Captura los años de precios deprimidos del nodo.</li>
-          <li>Mantiene flexibilidad para firmar cuando convenga.</li>
-          <li class="path__kick path__kick--good">Preserva el valor del proyecto.</li>
+          <li>Costo unitario de energía cercano a 0 USD/MWh en banda solar.</li>
+          <li>Captura del ahorro estructural de la zona.</li>
+          <li>Flexibilidad para suscribir el PPA cuando el escenario lo justifique.</li>
+          <li class="path__kick path__kick--good">Preserva el costo unitario del proyecto.</li>
         </ul>
       </div>
     </div>
@@ -152,15 +183,16 @@
 </section>
 
 <!-- HORIZONTE -->
-<section class="section" id="horizonte">
+<section class="section section--soft" id="horizonte">
   <div class="wrap">
-    <div class="tag reveal">El horizonte</div>
-    <h2 class="h2 reveal">¿Cuándo sí conviene firmar? Hacia 2030</h2>
+    <div class="tag reveal">Marco regulatorio y horizonte</div>
+    <h2 class="h2 reveal">Ventana de revisión hacia 2030</h2>
+    <p class="sub reveal">Las publicaciones del Coordinador Eléctrico Nacional y la CNE identifican refuerzos de transmisión previstos para la zona, con entrada en operación esperable hacia 2030. La materialización de esos refuerzos constituye el catalizador esperado para una recomposición de los precios nodales.</p>
     <div class="timeline">
-      <div class="tl reveal"><div class="tl__year">2026–2029</div><p>Spot deprimido (~0 USD/MWh en horas solares). Nos abastecemos a spot.</p></div>
-      <div class="tl reveal"><div class="tl__year">≈ 2030</div><p>Entran en operación los refuerzos de transmisión previstos para la zona.</p></div>
-      <div class="tl reveal"><div class="tl__year">Post-2030</div><p>El nodo se recupera y el costo marginal vuelve a niveles normales.</p></div>
-      <div class="tl reveal tl--final"><div class="tl__year">Firma del PPA</div><p>Recién ahí la compra a 28 USD/MWh resulta conveniente y la evaluaríamos.</p></div>
+      <div class="tl reveal"><div class="tl__year">2026–2029</div><p>Persistencia del desacople estructural del nodo. Abastecimiento a costo spot mientras subsista.</p></div>
+      <div class="tl reveal"><div class="tl__year">≈ 2030</div><p>Entrada en operación esperada de los refuerzos de transmisión previstos para la zona.</p></div>
+      <div class="tl reveal"><div class="tl__year">Post-2030</div><p>Recomposición potencial del precio del nodo hacia niveles consistentes con el sistema.</p></div>
+      <div class="tl reveal tl--final"><div class="tl__year">Ventana de revisión</div><p>Reevaluación formal de la suscripción del PPA condicionada a la materialización del escenario.</p></div>
     </div>
   </div>
 </section>
@@ -169,41 +201,42 @@
 <section class="section propuesta" id="propuesta">
   <div class="prop-glow"></div>
   <div class="wrap">
-    <div class="tag tag--green reveal">La propuesta</div>
-    <h2 class="prop__title reveal">Abastecer a spot hoy.<br/>Reevaluar el PPA hacia 2030.</h2>
+    <div class="tag tag--green reveal">Recomendación al Comité de Crédito</div>
+    <h2 class="prop__title reveal">Abastecimiento a spot.<br/>Reevaluación del PPA hacia 2030.</h2>
     <div class="prop__list">
-      <div class="prop__item reveal"><span class="prop__chk">✓</span> No suscribir la oferta de compra a 28 USD/MWh en las condiciones actuales del nodo.</div>
-      <div class="prop__item reveal"><span class="prop__chk">✓</span> Abastecerse a costo spot (~0 USD/MWh gran parte del día) mientras persista el desacople.</div>
-      <div class="prop__item reveal"><span class="prop__chk">✓</span> Reevaluar la firma hacia 2030, cuando el nodo recupere sus niveles de precio.</div>
+      <div class="prop__item reveal"><span class="prop__chk">1</span><div><b>No suscribir</b> la oferta de PPA de compra a 28 USD/MWh en las condiciones actuales del nodo.</div></div>
+      <div class="prop__item reveal"><span class="prop__chk">2</span><div><b>Abastecerse a costo spot</b> mientras persista el desacople estructural del nodo.</div></div>
+      <div class="prop__item reveal"><span class="prop__chk">3</span><div><b>Reevaluar la suscripción del PPA hacia 2030</b>, condicionada a la entrada en operación de los refuerzos de transmisión previstos por el Coordinador y la CNE.</div></div>
+      <div class="prop__item reveal"><span class="prop__chk">4</span><div><b>Monitorear trimestralmente</b> los indicadores nodales (promedio anual, fracción de horas en cero y ahorro vs. PPA) para detectar tempranamente cualquier inflexión que justifique adelantar la decisión.</div></div>
     </div>
-    <p class="prop__close reveal">Esta decisión preserva el valor del proyecto sin cerrar la puerta a un PPA futuro.</p>
+    <p class="prop__close reveal">La estrategia preserva el costo unitario de energía del proyecto sin cerrar la puerta a una eventual suscripción futura.</p>
   </div>
 </section>
 
-<!-- DESCARGAS v2 -->
-<section class="section section--soft" id="descargas">
+<!-- DESCARGAS -->
+<section class="section" id="descargas">
   <div class="wrap">
-    <div class="tag reveal">Material para el comité de crédito</div>
-    <h2 class="h2 reveal">Descargas — Versión 2.0</h2>
-    <p class="sub reveal">Paquete documental gemelo en PDF, Word y Excel. Mismas cifras, mismos gráficos, distintos formatos.</p>
+    <div class="tag reveal">Paquete documental</div>
+    <h2 class="h2 reveal">Material para el Comité de Crédito · Versión 2.1</h2>
+    <p class="sub reveal">Tres formatos del mismo análisis. Misma narrativa, mismas cifras, mismos gráficos. Diferentes herramientas para que el equipo del Banco trabaje el caso.</p>
     <div class="downloads reveal">
       <a class="dl" href="downloads/Panimavida_Analisis_Banco_v2.pdf" target="_blank" rel="noopener">
         <div class="dl__type">PDF</div>
         <div class="dl__name">Informe ejecutivo</div>
-        <div class="dl__sub">Estructura calidad comité de crédito · 6 pp.</div>
+        <div class="dl__sub">9 páginas · estructura comité de crédito · KPI cards, evidencia, sensibilidad, riesgos y mitigantes, glosario.</div>
       </a>
       <a class="dl" href="downloads/Panimavida_Informe_Banco_v2.docx" target="_blank" rel="noopener">
         <div class="dl__type">Word</div>
         <div class="dl__name">Informe editable</div>
-        <div class="dl__sub">Gemelo del PDF · estilos nativos · paleta v2.</div>
+        <div class="dl__sub">Gemelo del PDF en estilos nativos de Word. Edición y comentarios por el equipo de Crédito y Riesgo.</div>
       </a>
       <a class="dl" href="downloads/Panimavida_Datos_Banco_v2.xlsx" target="_blank" rel="noopener">
         <div class="dl__type">Excel</div>
-        <div class="dl__name">Datos + fórmulas</div>
-        <div class="dl__sub">38.064 horas + hoja <code>Ahorro_vs_PPA</code> con fórmulas en vivo.</div>
+        <div class="dl__name">Datos y modelos</div>
+        <div class="dl__sub">38.064 horas en <code>Datos_CMg</code>, hoja <code>Ahorro_vs_PPA</code> con fórmulas en vivo, hoja <code>Sensibilidad_PPA</code> reproducible.</div>
       </a>
     </div>
-    <p class="sub reveal" style="margin-top:18px;">Fuente: Coordinador Eléctrico Nacional · Real Definitivo · Nodo BA S/E Panimávida 13.2 kV (BP1).</p>
+    <p class="sub reveal" style="margin-top:18px;">Fuente: Coordinador Eléctrico Nacional · Versión Real Definitivo · Nodo BA S/E Panimávida 13.2 kV (BP1) · Período 2022-01-01 a 2026-05-22.</p>
   </div>
 </section>
 
@@ -212,8 +245,8 @@
   <div class="wrap footer__inner">
     <img src="assets/rho-full.png" alt="Rho Generación" class="footer__logo" />
     <div class="footer__txt">
-      <p>Fuente: Coordinador Eléctrico Nacional — costos marginales reales del nodo BA S/E Panimávida 13.2 kV BP1.</p>
-      <p class="footer__muted">Período: 2022 — 22 may 2026 · Horas en formato 0–23 · 2024 sin 15–31 jul · 2026 con datos hasta 22 may.</p>
+      <p><b>Rho Generación · Cehta Capital</b> — Análisis crediticio del nodo Panimávida 13.2 kV.</p>
+      <p class="footer__muted">Fuente: Coordinador Eléctrico Nacional, versión Real Definitivo · Período: 2022-01-01 a 2026-05-22 (38.064 horas) · 2024 sin 15–31 jul (sin dato publicado) · 2026 con datos hasta el 22 de mayo · Versión 2.1.</p>
     </div>
   </div>
 </footer>

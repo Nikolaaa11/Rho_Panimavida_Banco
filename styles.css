@@ -232,3 +232,93 @@ a{color:inherit;text-decoration:none}
   border-radius:6px;
   color:var(--green-d);
 }
+
+/* ============ Sensibilidad ============ */
+.sens-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:28px;
+  box-shadow: var(--shadow-sm);
+  overflow-x:auto;
+}
+.sens-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  font-feature-settings: "tnum" 1;
+}
+.sens-table th{
+  background:var(--green-d);
+  color:#fff;
+  font-weight:700;
+  font-size:13px;
+  padding:14px 8px;
+  text-align:center;
+  letter-spacing:.02em;
+}
+.sens-table th:first-child{ border-top-left-radius:8px; }
+.sens-table th:last-child{ border-top-right-radius:8px; }
+.sens-table td{
+  text-align:center;
+  padding:14px 8px;
+  font-size:15px;
+  color:var(--ink2);
+  border-bottom:1px solid #f0f3ef;
+}
+.sens-table tr:last-child td{ border-bottom:none; }
+.sens-table tr:nth-child(even) td{ background:#f9fbf8; }
+.sens-table td:first-child{ font-weight:700; color:var(--ink); }
+.sens-th--mark{
+  background:#0E3A0E !important;
+  position:relative;
+}
+.sens-th--mark::after{
+  content:"oferta vigente";
+  position:absolute;
+  left:0; right:0; bottom:-22px;
+  font-size:10px;
+  font-weight:600;
+  color:var(--green-d);
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.sens-td--mark{
+  background:#DCEAD3 !important;
+  font-weight:700 !important;
+  border-left:2px solid var(--green) !important;
+  border-right:2px solid var(--green) !important;
+}
+.sens-table tr:last-child .sens-td--mark{ border-bottom:2px solid var(--green) !important; }
+.sens-table tr:first-child + tbody tr:first-child .sens-td--mark{ border-top:2px solid var(--green) !important; }
+.sens-note{
+  margin-top:18px;
+  font-size:12px;
+  color:var(--gray);
+  font-style:italic;
+}
+
+/* propuesta steps numerados */
+.propuesta .prop__chk{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px; height:32px;
+  border-radius:50%;
+  background:#fff;
+  color:var(--green-d);
+  font-weight:800;
+  font-size:14px;
+  border:2px solid var(--green);
+  flex-shrink:0;
+  margin-right:14px;
+}
+.propuesta .prop__item{
+  display:flex;
+  align-items:flex-start;
+  gap:0;
+}
+.propuesta .prop__item > div{
+  padding-top:5px;
+  line-height:1.5;
+}
