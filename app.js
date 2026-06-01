@@ -55,28 +55,30 @@
   }, { threshold: 0.5 });
   document.querySelectorAll(".cnt").forEach(function (el) { cntObs.observe(el); });
 
-  /* ---------- Progress dots ---------- */
-  var ids = ["hero", "cifras", "tendencia", "estructural", "logica", "horizonte", "propuesta"];
+  /* ---------- Progress dots (opcional — solo si #dots existe) ---------- */
+  var ids = ["hero", "modelo", "asimetria", "tendencia", "noppa", "sensibilidad", "horizonte", "propuesta", "descargas"];
   var dots = document.getElementById("dots");
-  ids.forEach(function (id) {
-    var b = document.createElement("button");
-    b.title = id;
-    b.addEventListener("click", function () {
-      var t = document.getElementById(id);
-      if (t) t.scrollIntoView({ behavior: "smooth" });
+  if (dots) {
+    ids.forEach(function (id) {
+      var b = document.createElement("button");
+      b.title = id;
+      b.addEventListener("click", function () {
+        var t = document.getElementById(id);
+        if (t) t.scrollIntoView({ behavior: "smooth" });
+      });
+      dots.appendChild(b);
     });
-    dots.appendChild(b);
-  });
-  var dotEls = dots.querySelectorAll("button");
-  var secObs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) {
-        var i = ids.indexOf(en.target.id);
-        dotEls.forEach(function (d, k) { d.classList.toggle("active", k === i); });
-      }
-    });
-  }, { threshold: 0.5 });
-  ids.forEach(function (id) { var s = document.getElementById(id); if (s) secObs.observe(s); });
+    var dotEls = dots.querySelectorAll("button");
+    var secObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var i = ids.indexOf(en.target.id);
+          dotEls.forEach(function (d, k) { d.classList.toggle("active", k === i); });
+        }
+      });
+    }, { threshold: 0.5 });
+    ids.forEach(function (id) { var s = document.getElementById(id); if (s) secObs.observe(s); });
+  }
 
   /* ---------- ECharts: lazy init on reveal ---------- */
   var charts = [];
