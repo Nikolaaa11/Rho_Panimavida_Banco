@@ -17,7 +17,7 @@ Plataforma web interactiva que explica por qué **no es la alternativa económic
 ## Datos
 
 Costos marginales **reales** del nodo BA S/E Panimávida 13.2 kV BP1, **Coordinador Eléctrico Nacional**.
-Período: 2022 — 22 may 2026 (38.064 horas). Generados en `data.js`.
+Período: 2022 — 2026 (38.064 horas reales). Generados en `data.js`.
 
 ## Stack
 
