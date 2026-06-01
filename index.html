@@ -33,8 +33,8 @@
   <div class="blob blob--c"></div>
   <div class="hero__inner">
     <div class="hero__eyebrow reveal">ANÁLISIS CREDITICIO · NODO PANIMÁVIDA 13.2 kV</div>
-    <h1 class="hero__title reveal">Vendemos en la noche.<br/>No necesitamos <span class="grad">comprar de día</span>.</h1>
-    <p class="hero__sub reveal">El proyecto Panimávida es una planta de <b>generación</b> que captura precio del nodo en banda nocturna. Por eso el financiamiento <b>no debe condicionarse</b> a la firma del PPA de compra a 28 USD/MWh.<br/><span style="color:#86868b;">Material preparado para el Comité de Crédito · 38.064 horas reales del Coordinador.</span></p>
+    <h1 class="hero__title reveal">Carga gratis de día.<br/>Vende caro <span class="grad">de noche</span>.</h1>
+    <p class="hero__sub reveal">El proyecto Panimávida opera un <b>arbitraje horario</b>: carga el almacenamiento cuando el precio del nodo está en cero (banda solar) y vende cuando se recompone (banda nocturna). Por eso el financiamiento <b>no debe condicionarse</b> a un PPA de compra a 28 USD/MWh — rompería el modelo.<br/><span style="color:#86868b;">Material preparado para el Comité de Crédito · 38.064 horas reales del Coordinador.</span></p>
     <div class="hero__cta reveal">
       <a href="#modelo" class="btn btn--primary">Ver el análisis</a>
       <span class="hero__meta">Período 2022 — 2026 · Versión 3.0</span>
@@ -49,24 +49,24 @@
 <section class="section" id="modelo">
   <div class="wrap">
     <div class="tag reveal">El modelo de negocio</div>
-    <h2 class="h2 reveal">Generador solar que vende al spot del nodo</h2>
-    <p class="sub reveal">El proyecto Panimávida produce energía con su propia generación solar y la inyecta al sistema, valorizada al costo marginal del nodo BA S/E Panimávida 13.2 kV (BP1). <b>No tiene una posición compradora estructural.</b> La oferta vigente de PPA de compra a 28 USD/MWh es un contrato para <b>adquirir</b> energía — un instrumento que cubriría un riesgo que el proyecto no tiene.</p>
+    <h2 class="h2 reveal">Solar + almacenamiento por batería (BESS)</h2>
+    <p class="sub reveal">El proyecto combina generación solar con almacenamiento. <b>Banda solar (09–17 h): carga la batería</b> con energía del nodo a costo cero. <b>Banda nocturna (19–07 h): descarga y vende</b> al sistema cuando el precio se recompone. Modelo de arbitraje horario sobre la asimetría intradiaria del nodo BA S/E Panimávida 13.2 kV (BP1).</p>
     <div class="stats">
-      <div class="stat reveal stat--accent">
-        <div class="stat__num"><span class="cnt" data-to="63">0</span><span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Precio nocturno promedio del nodo · 2026 — ventana de captura del proyecto.</div>
-      </div>
       <div class="stat reveal">
         <div class="stat__num"><span class="cnt" data-to="17">0</span><span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Precio diurno promedio · 2026 — el nodo satura y el precio cae a cero.</div>
+        <div class="stat__label">Precio del nodo en banda solar · 2026 — <b>ventana de carga</b>.</div>
+      </div>
+      <div class="stat reveal stat--accent">
+        <div class="stat__num"><span class="cnt" data-to="65">0</span><span class="stat__unit">USD/MWh</span></div>
+        <div class="stat__label">Precio del nodo en banda nocturna · 2026 — <b>ventana de venta</b>.</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__num"><span class="cnt" data-to="48">0</span><span class="stat__unit">USD/MWh</span></div>
+        <div class="stat__label">Spread horario capturado (noche − día) · sustento del arbitraje.</div>
       </div>
       <div class="stat reveal">
         <div class="stat__num"><span class="cnt" data-to="28">0</span><span class="stat__unit">USD/MWh</span></div>
         <div class="stat__label">Oferta del PPA — sería para comprar, no para vender.</div>
-      </div>
-      <div class="stat reveal">
-        <div class="stat__num"><span class="cnt" data-to="38064">0</span></div>
-        <div class="stat__label">Horas reales de mercado analizadas (2022 — 2026).</div>
       </div>
     </div>
   </div>
