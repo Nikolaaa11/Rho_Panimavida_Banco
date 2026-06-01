@@ -164,3 +164,71 @@ a{color:inherit;text-decoration:none}
 .reveal:nth-child(3){transition-delay:.12s}
 .reveal:nth-child(4){transition-delay:.18s}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.blob{animation:none}}
+
+/* ============ Descargas v2 ============ */
+.downloads{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+  margin-top:18px;
+}
+@media (max-width: 820px){
+  .downloads{ grid-template-columns:1fr; }
+}
+.dl{
+  display:block;
+  text-decoration:none;
+  color:var(--ink2);
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:22px 24px;
+  box-shadow: var(--shadow-sm);
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+  position:relative;
+  overflow:hidden;
+}
+.dl::after{
+  content:"";
+  position:absolute; right:18px; top:18px;
+  width:34px; height:34px;
+  border-radius:50%;
+  background:radial-gradient(circle at center, rgba(31,157,77,.18), transparent 70%);
+}
+.dl:hover{
+  transform:translateY(-3px);
+  border-color:var(--green);
+  box-shadow:0 18px 40px -20px rgba(20,90,45,.35);
+}
+.dl__type{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--green-d);
+  background:rgba(31,157,77,.10);
+  padding:5px 10px;
+  border-radius:999px;
+  margin-bottom:14px;
+}
+.dl__name{
+  font-size:22px;
+  font-weight:700;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+  margin-bottom:6px;
+}
+.dl__sub{
+  font-size:14px;
+  color:var(--gray);
+  line-height:1.45;
+}
+.dl__sub code{
+  font-family:ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size:13px;
+  background:rgba(0,0,0,.04);
+  padding:1px 6px;
+  border-radius:6px;
+  color:var(--green-d);
+}

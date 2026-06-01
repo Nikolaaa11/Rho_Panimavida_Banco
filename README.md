@@ -1,17 +1,18 @@
-# Panimávida · Rho Generación — Plataforma de análisis para el banco
+# Panimávida · Rho Generación — Plataforma de análisis para el banco (v2.0)
 
 🌐 **En vivo:** https://rho-panimavida-banco.vercel.app
 
-Plataforma web interactiva que explica por qué **Rho no firma hoy** la oferta de PPA de compra a **28 USD/MWh** en el nodo **Panimávida 13.2 kV**, fundamentado en datos reales del mercado eléctrico.
+Plataforma web interactiva que explica por qué **no es la alternativa económicamente óptima** suscribir hoy la oferta de PPA de compra a **28 USD/MWh** en el nodo **Panimávida 13.2 kV**, fundamentado en datos reales del Coordinador Eléctrico Nacional.
 
 ## Qué muestra
 
-- **El dilema en números**: oferta 28 USD/MWh vs. costo spot del nodo ~0 USD/MWh.
+- **El dilema en números**: oferta 28 USD/MWh vs. costo spot del nodo ~0 USD/MWh en horas solares.
 - **Tendencia**: costo marginal promedio mensual 2022–2026 vs. la oferta.
 - **El patrón estructural**: % de horas en 0 USD/MWh por hora del día + mapa de calor año × hora.
 - **La lógica económica**: comparación firmar hoy vs. abastecerse a spot.
 - **Horizonte**: por qué evaluar la firma recién hacia 2030.
 - **La propuesta** final.
+- **Descargas v2**: PDF ejecutivo + Word editable + Excel con fórmulas en vivo (`Ahorro_vs_PPA`).
 
 ## Datos
 
