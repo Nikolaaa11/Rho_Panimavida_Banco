@@ -1,4 +1,4 @@
-# Panimávida · Rho Generación — Modelo de arbitraje horario (v3.1)
+# Panimávida · Rho Generación — Modelo de arbitraje horario (v3.2)
 
 🌐 **En vivo:** https://rho-panimavida-banco.vercel.app
 
