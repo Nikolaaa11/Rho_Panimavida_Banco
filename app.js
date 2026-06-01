@@ -130,15 +130,23 @@
   }
 
   function initCero() {
+    /* v2: precio USD/MWh por hora del día y año, con línea PPA = 28 */
     var el = document.getElementById("chartCero");
     var c = echarts.init(el, null, { renderer: "canvas" });
-    var hours = D.perfilCero.horas.map(function (h) { return h + "h"; });
+    var src = D.perfilPrecio || D.perfil;
+    var hours = src.horas.map(function (h) { return h + "h"; });
     var series = D.anios.map(function (y, idx) {
       return {
         name: String(y), type: "line", smooth: true, symbol: "none",
-        data: D.perfilCero.series[y],
+        data: src.series[y],
         lineStyle: { width: y >= 2024 ? 3 : 2, color: YCOL[y] },
         emphasis: { focus: "series" },
+        markLine: idx === D.anios.length - 1 ? {
+          symbol: "none", silent: true,
+          data: [{ yAxis: D.oferta, name: "PPA 28" }],
+          lineStyle: { color: AMBER, type: "dashed", width: 2 },
+          label: { formatter: "PPA · 28 USD/MWh", color: AMBER, fontFamily: FONT, fontSize: 12, position: "insideEndTop" }
+        } : undefined,
         markArea: idx === 0 ? {
           silent: true, itemStyle: { color: "rgba(124,195,107,.12)" },
           data: [[{ xAxis: "9h", name: "Horas solares", label: { color: GREEND, fontFamily: FONT, fontSize: 11 } }, { xAxis: "17h" }]]
@@ -146,19 +154,19 @@
       };
     });
     c.setOption({
-      grid: { left: 54, right: 28, top: 46, bottom: 70 },
+      grid: { left: 60, right: 28, top: 46, bottom: 70 },
       color: D.anios.map(function (y) { return YCOL[y]; }),
       legend: { bottom: 6, textStyle: { color: GRAY, fontFamily: FONT }, icon: "roundRect" },
       tooltip: {
         trigger: "axis", backgroundColor: "rgba(255,255,255,.96)", borderColor: "#e4e8e3", borderWidth: 1,
         textStyle: { color: INK, fontFamily: FONT },
-        valueFormatter: function (v) { return v + "%"; }
+        valueFormatter: function (v) { return Math.round(v) + " USD/MWh"; }
       },
       xAxis: Object.assign({ type: "category", data: hours, boundaryGap: false,
         axisLabel: { color: GRAY, fontFamily: FONT, fontSize: 11, interval: 1 } },
         { axisLine: { lineStyle: { color: "#e4e8e3" } }, axisTick: { show: false }, splitLine: { show: false } }),
-      yAxis: Object.assign({ type: "value", name: "% horas en 0", nameTextStyle: { color: GRAY, fontFamily: FONT }, min: 0, max: 100,
-        axisLabel: { color: GRAY, fontFamily: FONT, formatter: "{value}%" } }, axisCommon()),
+      yAxis: Object.assign({ type: "value", name: "USD/MWh", nameTextStyle: { color: GRAY, fontFamily: FONT }, min: 0,
+        axisLabel: { color: GRAY, fontFamily: FONT } }, axisCommon()),
       series: series,
       animationDuration: 1600, animationEasing: "cubicOut"
     });
@@ -166,17 +174,22 @@
   }
 
   function initHeat() {
+    /* v2: heatmap del PRECIO USD/MWh, divergente en 28 (PPA) */
     var el = document.getElementById("chartHeat");
     var c = echarts.init(el, null, { renderer: "canvas" });
-    var hours = D.perfilCero.horas.map(function (h) { return h + "h"; });
+    var src = D.perfilPrecio || D.perfil;
+    var hours = src.horas.map(function (h) { return h + "h"; });
     var years = D.anios.map(String);
+    var data = D.heatPrecio || D.heat;
+    var maxV = 0;
+    for (var i = 0; i < data.length; i++) if (data[i][2] > maxV) maxV = data[i][2];
     c.setOption({
       grid: { left: 64, right: 24, top: 18, bottom: 64 },
       tooltip: {
         backgroundColor: "rgba(255,255,255,.96)", borderColor: "#e4e8e3", borderWidth: 1,
         textStyle: { color: INK, fontFamily: FONT },
         formatter: function (p) {
-          return years[p.value[1]] + " · " + hours[p.value[0]] + "<br/><b>" + p.value[2] + "%</b> de horas en 0 USD/MWh";
+          return years[p.value[1]] + " · " + hours[p.value[0]] + "<br/><b>" + Math.round(p.value[2]) + " USD/MWh</b>";
         }
       },
       xAxis: { type: "category", data: hours, splitArea: { show: false },
@@ -186,12 +199,23 @@
         axisLabel: { color: INK, fontFamily: FONT, fontSize: 13, fontWeight: 600 },
         axisLine: { lineStyle: { color: "#e4e8e3" } }, axisTick: { show: false } },
       visualMap: {
-        min: 0, max: 100, calculable: true, orient: "horizontal", left: "center", bottom: 6,
-        inRange: { color: ["#eef6ee", "#a8e0b3", "#34c759", "#147a3a", "#0c4f25"] },
-        textStyle: { color: GRAY, fontFamily: FONT }, text: ["100%", "0%"]
+        /* Divergente en 28 (oferta del PPA): verdes por debajo, ámbar por encima */
+        type: "piecewise",
+        pieces: [
+          { lte: 0, color: "#0c4f25", label: "0" },
+          { gt: 0, lte: 10, color: "#147a3a" },
+          { gt: 10, lte: 20, color: "#34c759" },
+          { gt: 20, lt: 28, color: "#a8e0b3" },
+          { gte: 28, lte: 60, color: "#ffd9a8" },
+          { gt: 60, lte: 120, color: "#ff7a1a" },
+          { gt: 120, color: "#e0392b", label: "> 120" }
+        ],
+        orient: "horizontal", left: "center", bottom: 4,
+        textStyle: { color: GRAY, fontFamily: FONT, fontSize: 11 },
+        itemWidth: 16, itemHeight: 12
       },
       series: [{
-        name: "% horas en 0", type: "heatmap", data: D.heat,
+        name: "Precio USD/MWh", type: "heatmap", data: data,
         label: { show: false }, progressive: 0,
         itemStyle: { borderColor: "#fff", borderWidth: 1.5 },
         emphasis: { itemStyle: { shadowBlur: 10, shadowColor: "rgba(20,90,45,.4)" } }
