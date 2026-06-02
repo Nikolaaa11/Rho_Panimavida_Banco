@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Proyecto Panimávida 13.2 kV — Análisis crediticio · Rho Generación</title>
-<meta name="description" content="Análisis crediticio del proyecto Panimávida: estructura de ingresos por arbitraje horario del nodo y fundamentación de la solicitud de financiamiento sin PPA de compra a 28 USD/MWh." />
+<title>Panimávida 13.2 kV — Batería de arbitraje · Análisis crediticio · Rho Generación</title>
+<meta name="description" content="Panimávida: batería (BESS 9 MW / 36 MWh) que compra energía cuando el nodo vale $0 y la vende en el precio máximo del día. Análisis para el Comité de Crédito sobre 38.064 horas reales del Coordinador Eléctrico Nacional." />
 <link rel="icon" href="assets/rho-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,10 +17,10 @@
 <nav id="nav" class="nav">
   <a class="nav__brand" href="#hero"><img src="assets/rho-full.png" alt="Rho Generación" /></a>
   <div class="nav__links">
-    <a href="#modelo">Estructura</a>
-    <a href="#asimetria">Evidencia</a>
-    <a href="#tendencia">Tendencia</a>
-    <a href="#noppa">Fundamentación</a>
+    <a href="#modelo">Estrategia</a>
+    <a href="#cero">Horas a $0</a>
+    <a href="#venta">Precio máximo</a>
+    <a href="#proyeccion">Proyección</a>
     <a href="#propuesta">Recomendación</a>
     <a href="#descargas">Descargas</a>
   </div>
@@ -33,73 +33,111 @@
   <div class="blob blob--c"></div>
   <div class="hero__inner">
     <div class="hero__eyebrow reveal">ANÁLISIS CREDITICIO · NODO PANIMÁVIDA 13.2 kV</div>
-    <h1 class="hero__title reveal">Análisis crediticio<br/>del proyecto <span class="grad">Panimávida</span>.</h1>
-    <p class="hero__sub reveal">El proyecto Panimávida — generación solar con sistema de almacenamiento (BESS) — sustenta sus ingresos en la captura del spread intradiario del costo marginal del nodo. La oferta de PPA de compra a 28 USD/MWh corresponde a un instrumento de cobertura no congruente con la posición estructuralmente vendedora del proyecto.<br/><span style="color:#86868b;">Material preparado para el Comité de Crédito · 38.064 horas reales del Coordinador Eléctrico Nacional.</span></p>
+    <h1 class="hero__title reveal">Comprar a <span class="grad">$0</span>,<br/>vender en el precio máximo.</h1>
+    <p class="hero__sub reveal">Panimávida es una batería —sistema de almacenamiento (BESS) de 9 MW / 36 MWh— que compra energía cuando el nodo vale $0 y la vende cuando alcanza su precio más alto del día. Lo que importa no es el promedio, sino dos datos concretos: <b>cuántas horas la energía es gratis</b> y <b>cuánto llega a valer en el pico</b>.<br/><span style="color:#86868b;">Material para el Comité de Crédito · 38.064 horas reales del Coordinador Eléctrico Nacional.</span></p>
     <div class="hero__cta reveal">
-      <a href="#modelo" class="btn btn--primary">Ver el análisis</a>
-      <span class="hero__meta">Período 2022 — 2026 · Versión 3.2</span>
+      <a href="#cero" class="btn btn--primary">Ver el análisis</a>
+      <span class="hero__meta">Período 2022 — 2026 · Versión 6.0</span>
     </div>
   </div>
-  <a href="#modelo" class="scroll-hint" aria-label="Bajar">
-    <span></span>
-  </a>
+  <a href="#modelo" class="scroll-hint" aria-label="Bajar"><span></span></a>
 </header>
 
-<!-- ESTRUCTURA DEL PROYECTO -->
+<!-- ESTRATEGIA -->
 <section class="section" id="modelo">
   <div class="wrap">
-    <div class="tag reveal">Estructura del proyecto</div>
-    <h2 class="h2 reveal">Generación solar con sistema de almacenamiento</h2>
-    <p class="sub reveal">El proyecto Panimávida combina generación solar fotovoltaica con un sistema de almacenamiento por baterías (BESS) operado sobre la asimetría intradiaria del costo marginal del nodo BA S/E Panimávida 13.2 kV (BP1). El esquema operacional comprende dos ciclos diarios: <b>ciclo de carga en banda solar (09–17 h)</b>, en que el sistema se carga con energía del nodo a costo cercano a cero por saturación de generación fotovoltaica zonal, y <b>ciclo de venta en banda nocturna (19–07 h)</b>, en que el sistema descarga al sistema eléctrico capturando el spread intradiario.</p>
+    <div class="tag reveal">Estrategia inteligente</div>
+    <h2 class="h2 reveal">Una regla simple: cargar barato, vender caro</h2>
+    <p class="sub reveal">La batería opera un ciclo diario: <b>carga en las horas más baratas del mediodía</b> (12–15 h), cuando el costo marginal del nodo cae a $0, y <b>descarga en las horas de mayor precio</b> (20–22 h). No depende de promedios: depende de identificar, hora a hora, cuándo la energía es gratis y cuándo vale más. El diferencial entre ambas franjas es el margen que sostiene los ingresos y el servicio de la deuda.</p>
     <div class="stats">
       <div class="stat reveal">
-        <div class="stat__num"><span class="cnt" data-to="17">0</span><span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Costo marginal promedio — banda solar (ciclo de carga) · 2026.</div>
+        <div class="stat__num"><span class="cnt" data-to="6">0</span><span class="stat__unit">de 10 h</span></div>
+        <div class="stat__label">Horas del día a costo <b>$0</b> — ventana solar (08–17 h) · 2026.</div>
       </div>
       <div class="stat reveal stat--accent">
-        <div class="stat__num"><span class="cnt" data-to="65">0</span><span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Costo marginal promedio — banda nocturna (ciclo de venta) · 2026.</div>
+        <div class="stat__num"><span class="cnt" data-to="103">0</span><span class="stat__unit">USD/MWh</span></div>
+        <div class="stat__label">Precio <b>máximo</b> de venta — pico 20–22 h (2025) · vs. 65 promedio.</div>
       </div>
       <div class="stat reveal">
-        <div class="stat__num"><span class="cnt" data-to="48">0</span><span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Spread intradiario capturado (noche − día) — margen del arbitraje.</div>
+        <div class="stat__num"><span class="cnt" data-to="62">0</span><span class="stat__unit">USD/MWh</span></div>
+        <div class="stat__label">Spread del arbitraje (62–77) — comprar a $0 · vender en el pico.</div>
       </div>
       <div class="stat reveal">
-        <div class="stat__num"><span class="cnt" data-to="28">0</span><span class="stat__unit">USD/MWh</span></div>
-        <div class="stat__label">Precio de la oferta del PPA de compra — no congruente con el modelo.</div>
+        <div class="stat__num"><span class="cnt" data-to="1899">0</span><span class="stat__unit">USD</span></div>
+        <div class="stat__label">Ingreso por ciclo (conservador) — BESS 9 MW / 36 MWh.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EVIDENCIA -->
-<section class="section section--soft" id="asimetria">
+<!-- HORAS A $0 -->
+<section class="section section--soft" id="cero">
   <div class="wrap">
-    <div class="tag reveal">Evidencia cuantitativa</div>
-    <h2 class="h2 reveal">Asimetría intradiaria del costo marginal del nodo</h2>
-    <p class="sub reveal">La curva intradiaria del costo marginal del nodo presenta dos regímenes diferenciados: aproximación a cero en banda solar (09–17 h) por saturación fotovoltaica, y recomposición sistemática en banda nocturna (19–07 h). El patrón es estructuralmente estable desde 2023.</p>
+    <div class="tag reveal">El dato clave para la carga</div>
+    <h2 class="h2 reveal">¿Cuántas horas del día la energía vale $0?</h2>
+    <p class="sub reveal">No es el costo promedio lo que importa, sino cuántas horas el nodo está exactamente a <b>$0</b>. En 2026, de las diez horas de sol (08–17 h) un promedio de <b>seis están a $0</b>, y el <b>72% de los días</b> ofrece al menos cuatro horas gratis — justo lo que la batería necesita para una carga completa. La distribución muestra cuántas horas gratis hay cada día.</p>
     <div class="card chart-card reveal">
-      <div id="chartCero" class="chart"></div>
+      <div id="chartCount" class="chart"></div>
     </div>
-    <h3 class="h3 reveal">Matriz año × hora del costo marginal (USD/MWh)</h3>
-    <p class="sub reveal">Mapa de calor del precio promedio por hora del día y por año. Las zonas verdes corresponden al rango inferior a la oferta del PPA (28 USD/MWh) — ventana en la que el proyecto realiza el ciclo de carga. Las zonas ámbar y rojo corresponden a precios superiores — ventana en la que el proyecto realiza el ciclo de venta.</p>
+    <h3 class="h3 reveal">En qué horas y años la energía está gratis</h3>
+    <p class="sub reveal">Frecuencia de horas a costo $0 por hora del día y por año. Las horas gratis se concentran al mediodía y la ventana es estable desde 2023 — la mejor franja para cargar.</p>
     <div class="card chart-card reveal">
       <div id="chartHeat" class="chart chart--heat"></div>
     </div>
   </div>
 </section>
 
+<!-- PRECIO MÁXIMO -->
+<section class="section" id="venta">
+  <div class="wrap">
+    <div class="tag reveal">El dato clave para la venta</div>
+    <h2 class="h2 reveal">Cuándo el precio es más alto para vender</h2>
+    <p class="sub reveal">El promedio nocturno (65 USD/MWh) esconde el valor real. Entre las <b>20 y 22 h</b> el precio sube muy por encima: alcanza <b>77 USD/MWh en 2026 y 103 en 2025</b>, con máximos históricos sobre 270. Vender concentrado en esas horas —no a lo largo de toda la noche— es lo que captura el ingreso proyectado de 80–100 USD/MWh. La línea roja es el precio alto real (P90); la gris punteada, el promedio.</p>
+    <div class="card chart-card reveal">
+      <div id="chartVenta" class="chart"></div>
+    </div>
+  </div>
+</section>
+
 <!-- TENDENCIA -->
-<section class="section" id="tendencia">
+<section class="section section--soft" id="tendencia">
   <div class="wrap">
     <div class="tag reveal">Tendencia · 2022–2026</div>
     <h2 class="h2 reveal">Evolución mensual del costo marginal del nodo</h2>
-    <p class="sub reveal">El costo marginal promedio mensual del nodo presenta una compresión sostenida, concentrada en banda solar por efecto de la saturación fotovoltaica zonal. La dinámica nocturna preserva niveles consistentes con el sistema y sustenta la generación de caja del proyecto.</p>
+    <p class="sub reveal">El costo marginal promedio mensual del nodo presenta una compresión sostenida, concentrada en las horas de sol por la mayor entrada de generación renovable zonal. La dinámica del pico nocturno preserva niveles consistentes con el sistema y sustenta la generación de caja del proyecto.</p>
     <div class="card chart-card reveal">
       <div id="chartMensual" class="chart"></div>
     </div>
     <div class="trend-foot reveal">
-      Promedio anual del nodo: <span><b>108</b> → <b>44</b> USD/MWh</span> entre 2022 y 2026. Promedio en banda nocturna 2026: <b>65 USD/MWh</b>.
+      El promedio anual del nodo cae de <span><b>108</b> → <b>44</b> USD/MWh</span> (2022–2026), pero el promedio esconde el detalle: por eso el análisis se enfoca en las <b>horas a $0</b> y en el <b>precio del pico</b>.
+    </div>
+  </div>
+</section>
+
+<!-- PROYECCIÓN -->
+<section class="section" id="proyeccion">
+  <div class="wrap">
+    <div class="tag reveal">Proyección de ganancias</div>
+    <h2 class="h2 reveal">Cuánto deja cada ciclo · unit economics</h2>
+    <p class="sub reveal">Con 9 MW / 36 MWh y 88% de eficiencia (31,7 MWh entregados por ciclo), cada ciclo diario deja entre <b>USD 1.900 y 3.260</b> según cuán cerca de $0 se compre — equivalente a un margen de 60 a 103 USD por MWh entregado. La cifra escala de forma lineal con el número de ciclos que se modele.</p>
+    <div class="sens-card reveal">
+      <table class="sens-table">
+        <thead>
+          <tr>
+            <th>Escenario</th>
+            <th>Compra USD/MWh</th>
+            <th>Venta USD/MWh</th>
+            <th>Margen USD/MWh</th>
+            <th class="sens-th--mark">Ingreso / ciclo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Conservador</b></td><td>15</td><td>77</td><td>60</td><td class="sens-td--mark">USD 1.899</td></tr>
+          <tr><td><b>Base 2024–26</b></td><td>20</td><td>89</td><td>66</td><td class="sens-td--mark">USD 2.100</td></tr>
+          <tr><td><b>Óptimo (carga $0)</b></td><td>0</td><td>103</td><td>103</td><td class="sens-td--mark">USD 3.263</td></tr>
+        </tbody>
+      </table>
+      <p class="sens-note">Unit economics por ciclo · eficiencia 88% · la anualización es una multiplicación directa por los ciclos/año.</p>
     </div>
   </div>
 </section>
@@ -108,57 +146,26 @@
 <section class="section section--soft" id="noppa">
   <div class="wrap">
     <div class="tag reveal">Fundamentación</div>
-    <h2 class="h2 reveal">Por qué el proyecto no requiere suscribir el PPA de compra</h2>
+    <h2 class="h2 reveal">Por qué el proyecto no requiere el PPA de compra</h2>
     <div class="paths">
       <div class="path path--bad reveal">
-        <div class="path__head"><span class="path__icon">✕</span> Suscripción del PPA a 28 USD/MWh</div>
+        <div class="path__head"><span class="path__icon">✕</span> Suscribir el PPA a 28 USD/MWh</div>
         <ul>
-          <li>Genera una obligación de compra a precio fijo durante toda la banda solar — período en que el proyecto adquiere energía a costo cercano a cero.</li>
-          <li>Instrumento de cobertura de una posición compradora estructural que el proyecto no presenta.</li>
-          <li>Anula el spread intradiario que constituye el margen económico del proyecto.</li>
+          <li>Fija el precio de compra de la energía de carga, hoy ≈ $0 al mediodía.</li>
+          <li>Obliga a pagar 28 USD/MWh muy por encima del costo del nodo en esas horas.</li>
+          <li>Anula el spread que constituye el margen del arbitraje.</li>
           <li class="path__kick path__kick--bad">Deterioro de los ratios DSCR y LLCR.</li>
         </ul>
       </div>
       <div class="path path--good reveal">
-        <div class="path__head"><span class="path__icon">✓</span> Operación bajo el modelo de arbitraje</div>
+        <div class="path__head"><span class="path__icon">✓</span> Operar bajo el modelo de arbitraje</div>
         <ul>
-          <li>Ciclo de carga a costo cercano a cero en banda solar (09–17 h).</li>
-          <li>Ciclo de venta en banda nocturna (19–07 h) — promedio 2026: 65 USD/MWh.</li>
-          <li>Generación solar propia como cobertura natural frente al precio diurno.</li>
+          <li>Cargar a costo cercano a cero en las horas de sol (12–15 h).</li>
+          <li>Vender en el pico nocturno (20–22 h), donde el precio es más alto.</li>
+          <li>Costo de carga indexado al spot — sin obligación de pago fija.</li>
           <li class="path__kick path__kick--good">Preservación de los ratios de cobertura de la deuda.</li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- SENSIBILIDAD -->
-<section class="section" id="sensibilidad">
-  <div class="wrap">
-    <div class="tag reveal">Robustez de la conclusión</div>
-    <h2 class="h2 reveal">Análisis de sensibilidad sobre el precio del PPA</h2>
-    <p class="sub reveal">Sobreprecio promedio en banda solar (USD/MWh) calculado como max(0, P − spot) bajo precios alternativos del PPA entre 22 y 34 USD/MWh. La conclusión del análisis es robusta: en todos los escenarios el costo marginal del nodo en banda solar permanece estructuralmente inferior al precio del contrato.</p>
-    <div class="sens-card reveal">
-      <table class="sens-table">
-        <thead>
-          <tr>
-            <th>Año</th>
-            <th>P = 22</th>
-            <th>P = 25</th>
-            <th class="sens-th--mark">P = 28</th>
-            <th>P = 30</th>
-            <th>P = 34</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><b>2022</b></td><td>10</td><td>12</td><td class="sens-td--mark">13</td><td>14</td><td>16</td></tr>
-          <tr><td><b>2023</b></td><td>15</td><td>17</td><td class="sens-td--mark">19</td><td>21</td><td>23</td></tr>
-          <tr><td><b>2024</b></td><td>18</td><td>20</td><td class="sens-td--mark">22</td><td>24</td><td>27</td></tr>
-          <tr><td><b>2025</b></td><td>13</td><td>15</td><td class="sens-td--mark">16</td><td>18</td><td>20</td></tr>
-          <tr><td><b>2026</b></td><td>14</td><td>16</td><td class="sens-td--mark">18</td><td>20</td><td>23</td></tr>
-        </tbody>
-      </table>
-      <p class="sens-note">Columna destacada: oferta vigente del PPA de compra (28 USD/MWh).</p>
     </div>
   </div>
 </section>
@@ -171,10 +178,10 @@
     <h2 class="prop__title reveal">Aprobar el financiamiento<br/>sin condicionarlo al PPA de compra.</h2>
     <div class="prop__list">
       <div class="prop__item reveal"><span class="prop__chk">1</span><div><b>Aprobar el financiamiento</b> del proyecto sin condicionarlo a la suscripción del PPA de compra a 28 USD/MWh.</div></div>
-      <div class="prop__item reveal"><span class="prop__chk">2</span><div><b>Reconocer como fuente principal de ingresos</b> el arbitraje horario entre el ciclo de carga (costo marginal promedio 17 USD/MWh) y el ciclo de venta (promedio 65 USD/MWh).</div></div>
-      <div class="prop__item reveal"><span class="prop__chk">3</span><div><b>Establecer monitoreo trimestral</b> del costo marginal del nodo en banda nocturna como insumo de los covenants financieros del crédito.</div></div>
+      <div class="prop__item reveal"><span class="prop__chk">2</span><div><b>Reconocer como fuente de ingresos</b> el arbitraje entre la carga a $0 (12–15 h) y la venta en el pico (20–22 h), con un spread de 62–77 USD/MWh.</div></div>
+      <div class="prop__item reveal"><span class="prop__chk">3</span><div><b>Establecer monitoreo trimestral</b> de las horas a $0 y del precio del pico como insumo de los covenants financieros del crédito.</div></div>
     </div>
-    <p class="prop__close reveal">El proyecto presenta un perfil de ingresos basado en el arbitraje horario del costo marginal del nodo — autosuficiente para el servicio de la deuda propuesta y robusto frente a escenarios de renegociación del precio del PPA.</p>
+    <p class="prop__close reveal">El proyecto sustenta el servicio de la deuda en un arbitraje horario estructuralmente estable —comprar cuando la energía es gratis y vender cuando vale más— robusto frente a escenarios de renegociación del precio del PPA.</p>
   </div>
 </section>
 
@@ -182,18 +189,23 @@
 <section class="section" id="descargas">
   <div class="wrap">
     <div class="tag reveal">Paquete documental</div>
-    <h2 class="h2 reveal">Material para el Comité de Crédito · Versión 3.2</h2>
-    <p class="sub reveal">El paquete está disponible en tres formatos, con idéntica base de datos y conclusiones, orientados a distintos usos por parte del equipo de Crédito y Riesgo del Banco.</p>
-    <div class="downloads downloads--two reveal">
-      <a class="dl" href="downloads/Panimavida_Analisis_Banco_v2.pdf" target="_blank" rel="noopener">
+    <h2 class="h2 reveal">Material para el Comité de Crédito · Versión 6.0</h2>
+    <p class="sub reveal">El paquete está disponible en tres formatos, con idéntica base de datos y conclusiones.</p>
+    <div class="downloads reveal">
+      <a class="dl" href="downloads/Panimavida_Resumen_Ejecutivo_v6.pdf" target="_blank" rel="noopener">
         <div class="dl__type">PDF</div>
-        <div class="dl__name">Informe ejecutivo</div>
-        <div class="dl__sub">8 páginas · estructura comité de crédito · resumen, modelo, evidencia, sensibilidad, implicancias y recomendación.</div>
+        <div class="dl__name">Resumen ejecutivo</div>
+        <div class="dl__sub">Una página · lo esencial: horas a $0, precio del pico, estrategia y recomendación.</div>
       </a>
-      <a class="dl" href="downloads/Panimavida_Datos_Banco_v2.xlsx" target="_blank" rel="noopener">
+      <a class="dl" href="downloads/Panimavida_Informe_Banco_v6.pdf" target="_blank" rel="noopener">
+        <div class="dl__type">PDF</div>
+        <div class="dl__name">Informe completo</div>
+        <div class="dl__sub">Cinco capítulos · horas a $0, precio máximo, estrategia, proyección y recomendación.</div>
+      </a>
+      <a class="dl" href="downloads/Panimavida_Datos_Banco_v6.xlsx" target="_blank" rel="noopener">
         <div class="dl__type">Excel</div>
-        <div class="dl__name">Base de datos y modelos</div>
-        <div class="dl__sub">38.064 horas en <code>Datos_CMg</code>, hoja <code>Sobreprecio_PPA</code> con fórmulas en vivo, <code>Sensibilidad_PPA</code> reproducible.</div>
+        <div class="dl__name">Base de datos</div>
+        <div class="dl__sub">38.064 horas en <code>Datos_CMg</code> · hojas de conteo de horas $0, ventanas y unit economics.</div>
       </a>
     </div>
     <p class="sub reveal" style="margin-top:18px;">Fuente: Coordinador Eléctrico Nacional · Versión Real Definitivo · Nodo BA S/E Panimávida 13.2 kV (BP1) · Período 2022 — 2026.</p>
@@ -205,8 +217,8 @@
   <div class="wrap footer__inner">
     <img src="assets/rho-full.png" alt="Rho Generación" class="footer__logo" />
     <div class="footer__txt">
-      <p><b>Rho Generación · Cehta Capital</b> — Análisis crediticio del proyecto Panimávida 13.2 kV.</p>
-      <p class="footer__muted">Fuente: Coordinador Eléctrico Nacional, versión Real Definitivo · Período 2022 — 2026 (38.064 horas reales) · Versión 3.2.</p>
+      <p><b>Rho Generación · Cehta Capital</b> — Análisis crediticio del proyecto Panimávida 13.2 kV (BESS 9 MW / 36 MWh).</p>
+      <p class="footer__muted">Fuente: Coordinador Eléctrico Nacional, versión Real Definitivo · Período 2022 — 2026 (38.064 horas reales) · Versión 6.0.</p>
     </div>
   </div>
 </footer>

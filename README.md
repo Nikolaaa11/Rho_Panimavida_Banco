@@ -1,25 +1,23 @@
-# Panimávida · Rho Generación — Modelo de arbitraje horario (v3.2)
+# Panimávida · Rho Generación — Batería de arbitraje horario (v6.0)
 
 🌐 **En vivo:** https://rho-panimavida-banco.vercel.app
 
-Plataforma web interactiva que explica el modelo de **arbitraje horario** del proyecto Panimávida (solar + almacenamiento por batería) y por qué el financiamiento **no debe condicionarse** a la suscripción de un PPA de compra a **28 USD/MWh** en el nodo **Panimávida 13.2 kV**.
+Plataforma web interactiva del proyecto **Panimávida** — una batería (sistema de almacenamiento BESS de **9 MW / 36 MWh**) que **compra energía cuando el nodo vale $0 y la vende cuando alcanza su precio más alto**. Explica por qué el financiamiento **no debe condicionarse** a un PPA de compra a **28 USD/MWh** en el nodo **Panimávida 13.2 kV**.
 
-## El modelo
+## La idea (sin promedios)
 
-- **Banda solar (09–17 h):** el costo marginal del nodo cae a cero por saturación de la generación solar. El proyecto **carga su batería** con energía a costo cercano a cero.
-- **Banda nocturna (19–07 h):** el precio del nodo se recompone. El proyecto **descarga y vende** al sistema.
-- **Spread capturado en 2026:** 48 USD/MWh.
+- **Cuántas horas a $0:** en 2026, de las 10 horas de sol (08–17 h) un promedio de **6 están a costo $0**; el **72% de los días** tiene 4+ horas gratis — lo que la batería necesita para cargar.
+- **Cuánto vale el pico:** el promedio nocturno (65) esconde el valor real; entre las **20–22 h** el precio llega a **77 (2026) y 103 (2025) USD/MWh**.
+- **Estrategia:** cargar 12–15 h (≈$0) y vender 20–22 h. Spread **62–77 USD/MWh**.
+- **Proyección (unit economics):** USD **1.900–3.260 por ciclo** (BESS 9 MW / 36 MWh, eficiencia 88%).
 
 ## Qué muestra el sitio
 
-- El modelo de negocio en una vista (carga / descarga).
-- Perfil intradiario del precio del nodo, año por año.
-- Tendencia mensual 2022–2026.
-- Mapa de calor del precio (verde por debajo de la oferta del PPA · ámbar/rojo por encima).
-- Por qué un PPA a 28 USD/MWh rompe el modelo.
-- Sensibilidad ante renegociación entre 22 y 34 USD/MWh.
-- Recomendación al Comité de Crédito.
-- Descargas: PDF ejecutivo (8 pp), Word editable, Excel con fórmulas en vivo (`Sobreprecio_PPA`, `Sensibilidad_PPA`).
+- Conteo de horas a $0 por día (distribución) y mapa de calor de frecuencia por año.
+- Cuándo el precio es más alto: precio alto real (P90) vs promedio.
+- Estrategia de carga/descarga y proyección por ciclo.
+- Por qué un PPA a 28 USD/MWh rompe el modelo, y recomendación al Comité de Crédito.
+- Descargas: resumen ejecutivo (1 p), informe completo (5 cap.) y Excel con la base de datos.
 
 ## Datos
 
