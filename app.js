@@ -3,7 +3,7 @@
   "use strict";
   var D = window.RHO_DATA;
   var GREEN = "#30a46c", GREEND = "#218358", RED = "#e5484d", INK = "#1d1d1f", GRAY = "#86868b", GRAYL = "#c7c7cc";
-  var YCOL = { 2022: "#c4ccc3", 2023: "#9ed8a8", 2024: "#5cc16f", 2025: "#30a46c", 2026: "#0f6a32" };
+  var YCOL = { 2023: "#9ed8a8", 2024: "#5cc16f", 2025: "#30a46c", 2026: "#0f6a32" };
   var FONT = "Inter, -apple-system, Segoe UI, sans-serif";
 
   /* ---------- NAV show on scroll ---------- */
@@ -99,6 +99,47 @@
     charts.push(c);
   }
 
+  /* Costo medio de carga en ventana solar (09–17 h) vs ventana óptima (12–15 h) · línea PPA 28 */
+  function initCargaCosto() {
+    var c = echarts.init(document.getElementById("chartCargaCosto"), null, { renderer: "canvas" });
+    var years = D.anios.map(String);
+    var solarV = years.map(function (y) { return D.cargaSolar.solar[y]; });
+    var chargeV = years.map(function (y) { return D.cargaSolar.carga[y]; });
+    var pct0 = years.map(function (y) { return D.cargaSolar.pct0[y]; });
+    var ppa = D.cargaSolar.ppa;
+    c.setOption({
+      grid: { left: 56, right: 28, top: 54, bottom: 46 },
+      legend: { data: ["Horas de sol (09–17 h)", "Ventana óptima de carga (12–15 h)"], top: 6,
+        textStyle: { color: GRAY, fontFamily: FONT, fontSize: 12 }, itemWidth: 14, itemHeight: 10, icon: "roundRect" },
+      tooltip: { trigger: "axis", backgroundColor: "rgba(255,255,255,.96)", borderColor: "#e4e8e3", borderWidth: 1,
+        textStyle: { color: INK, fontFamily: FONT },
+        formatter: function (p) {
+          var i = p[0].dataIndex;
+          var s = "<b>" + p[0].axisValue + "</b><br/>";
+          p.forEach(function (it) { s += it.marker + it.seriesName + ": <b>" + Math.round(it.data) + " USD/MWh</b><br/>"; });
+          s += "<span style='color:#86868b'>" + pct0[i] + "% de las horas de sol a $0</span>";
+          return s;
+        } },
+      xAxis: Object.assign({ type: "category", data: years,
+        axisLabel: { color: INK, fontFamily: FONT, fontSize: 13, fontWeight: 600 } },
+        { axisLine: { lineStyle: { color: "#e4e8e3" } }, axisTick: { show: false }, splitLine: { show: false } }),
+      yAxis: Object.assign({ type: "value", name: "USD/MWh", nameTextStyle: { color: GRAY, fontFamily: FONT }, min: 0 }, axisCommon()),
+      series: [
+        { name: "Horas de sol (09–17 h)", type: "bar", data: solarV, barWidth: "26%",
+          itemStyle: { color: "#5cc16f", borderRadius: [6, 6, 0, 0] },
+          label: { show: true, position: "top", color: INK, fontFamily: FONT, fontSize: 12, fontWeight: 600, formatter: "{c}" },
+          markLine: { symbol: "none", silent: true, data: [{ yAxis: ppa }],
+            lineStyle: { color: RED, type: "dashed", width: 1.6 },
+            label: { formatter: "PPA de compra · " + ppa + " USD/MWh", color: RED, fontFamily: FONT, fontSize: 12, position: "insideEndTop" } } },
+        { name: "Ventana óptima de carga (12–15 h)", type: "bar", data: chargeV, barWidth: "26%",
+          itemStyle: { color: GREEND, borderRadius: [6, 6, 0, 0] },
+          label: { show: true, position: "top", color: GREEND, fontFamily: FONT, fontSize: 12, fontWeight: 600, formatter: "{c}" } }
+      ],
+      animationDuration: 1400, animationEasing: "cubicOut"
+    });
+    charts.push(c);
+  }
+
   /* Venta: precio alto real (P90) por hora · 2026, pico 20–22 h */
   function initVenta() {
     var c = echarts.init(document.getElementById("chartVenta"), null, { renderer: "canvas" });
@@ -140,7 +181,7 @@
     charts.push(c);
   }
 
-  var chartInit = { chartCount: initCount, chartHeat: initHeat, chartVenta: initVenta, chartMensual: initMensual };
+  var chartInit = { chartCount: initCount, chartCargaCosto: initCargaCosto, chartHeat: initHeat, chartVenta: initVenta, chartMensual: initMensual };
   var done = {};
   var chartObs = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {

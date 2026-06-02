@@ -1,7 +1,7 @@
 # HANDOFF — Proyecto Panimávida 13.2 kV (análisis de crédito para banco)
 
 > Documento de traspaso para retomar el proyecto en otro equipo / sesión de Claude Code.
-> Última actualización: **2026-06-02** · versión vigente: **v6.1**.
+> Última actualización: **2026-06-02** · versión vigente: **v7.0**.
 > Si lo quieres auto-cargado por Claude Code, renómbralo a `CLAUDE.md` en la raíz de trabajo.
 
 ---
@@ -113,7 +113,8 @@ openpyxl **borra los gráficos** al guardar. Usar `win32com Excel.Application`, 
 - **v4.0**: se quitó "fotovoltaico" → BESS de arbitraje; informe reestructurado (12 secciones); se integraron tablas horarias al Excel.
 - **v5.0**: rediseño estilo Apple (tarjetas redondeadas), 5 capítulos, lenguaje transversal, proyección unit economics.
 - **v6.0**: corrección de fondo tras re-escuchar el audio → el protagonista pasa a ser el **conteo de horas a $0** y el **precio máximo** (antes el hero era un promedio). Plataforma actualizada y deployada.
-- **v6.1** (vigente): se eliminó **toda** mención a "promedios" en correo, plataforma y archivos. Verificado 0 ocurrencias en producción y en los PDFs/Excel.
+- **v6.1**: se eliminó **toda** mención a "promedios" en correo, plataforma y archivos. Verificado 0 ocurrencias en producción y en los PDFs/Excel.
+- **v7.0** (vigente): por instrucción del dueño (Nico), tres cambios: (1) se **eliminó 2022** de todo el análisis → base ahora **2023–2026 = 29.304 horas reales** (Datos_CMg, charts, resúmenes, docs); (2) **nuevo capítulo "Costo medio de carga en ventana solar"** (campo `cargaSolar` en `data.js`, chart `chartCargaCosto`, hoja Excel `Costo_Carga_Solar`, CAP 3 del informe): costo medio de cargar de día = **15–36 USD/MWh** (sol 09–17) y **11–32** (óptima 12–15), vs pico de venta 77–139 y PPA 28. **Excepción matizada a la Regla #2:** se reintrodujo un promedio **acotado y defensivo** —el *costo medio de carga*, etiquetado "costo medio", NO la palabra "promedio" ni un promedio de venta— porque cuenta el caso de forma conservadora ("hay días en que no vale $0") y refuerza el no-PPA. El veto del jefe a los promedios de venta como hero **sigue vigente**; (3) se agregó al capítulo de estrategia la **asesoría de un socio especialista** (tipo **Delfos Energy** / **Suncast**) para el vector óptimo de carga/descarga y la carga al menor costo. Docs regenerados: el `.docx` v6 no existía en el equipo → se reconstruyó desde el PDF v6 con python-docx; PDF vía **LibreOffice headless** (`soffice --convert-to pdf`) porque Word COM se bloqueaba con un modal de primer arranque. **Nota COM:** en este equipo (`nicol`) Excel/Word COM exigen `Visible=True` + reintentos ante "llamada rechazada"; para archivos bajo OneDrive copiar a carpeta local + `Unblock-File` antes de abrir.
 
 ---
 
