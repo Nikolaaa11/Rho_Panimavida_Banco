@@ -99,24 +99,22 @@
     charts.push(c);
   }
 
-  /* Venta: precio alto real (P90) vs promedio · 2026 */
+  /* Venta: precio alto real (P90) por hora · 2026, pico 20–22 h */
   function initVenta() {
     var c = echarts.init(document.getElementById("chartVenta"), null, { renderer: "canvas" });
     var hours = D.ventaP90.horas.map(function (h) { return h + "h"; });
     c.setOption({
-      grid: { left: 56, right: 28, top: 46, bottom: 60 },
-      legend: { bottom: 6, textStyle: { color: GRAY, fontFamily: FONT }, icon: "roundRect", data: ["Precio alto real (P90)", "Promedio (informe)"] },
+      grid: { left: 56, right: 28, top: 36, bottom: 48 },
       tooltip: { trigger: "axis", backgroundColor: "rgba(255,255,255,.96)", borderColor: "#e4e8e3", borderWidth: 1, textStyle: { color: INK, fontFamily: FONT }, valueFormatter: function (v) { return Math.round(v) + " USD/MWh"; } },
       xAxis: Object.assign({ type: "category", data: hours, boundaryGap: false, axisLabel: { color: GRAY, fontFamily: FONT, fontSize: 11, interval: 1 } },
         { axisLine: { lineStyle: { color: "#e4e8e3" } }, axisTick: { show: false }, splitLine: { show: false } }),
       yAxis: Object.assign({ type: "value", name: "USD/MWh", nameTextStyle: { color: GRAY, fontFamily: FONT }, min: 0 }, axisCommon()),
       series: [
-        { name: "Precio alto real (P90)", type: "line", smooth: true, symbol: "none", data: D.ventaP90.series["2026"],
+        { name: "Precio del nodo por hora (P90)", type: "line", smooth: true, symbol: "none", data: D.ventaP90.series["2026"],
           lineStyle: { width: 3.4, color: RED },
+          areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: "rgba(229,72,77,.16)" }, { offset: 1, color: "rgba(229,72,77,.01)" }]) },
           markArea: { silent: true, itemStyle: { color: "rgba(229,72,77,.10)" },
-            data: [[{ xAxis: "19h", name: "Pico de venta", label: { color: RED, fontFamily: FONT, fontSize: 11 } }, { xAxis: "22h" }]] } },
-        { name: "Promedio (informe)", type: "line", smooth: true, symbol: "none", data: D.perfilPrecio.series["2026"],
-          lineStyle: { width: 2, color: GRAYL, type: "dashed" } }
+            data: [[{ xAxis: "19h", name: "Pico de venta · 20–22 h", label: { color: RED, fontFamily: FONT, fontSize: 11 } }, { xAxis: "22h" }]] } }
       ],
       animationDuration: 1500, animationEasing: "cubicOut"
     });
