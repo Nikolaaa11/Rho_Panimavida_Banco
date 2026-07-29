@@ -361,3 +361,19 @@ a{color:inherit;text-decoration:none}
 @media (max-width:620px){
   .esc-btn{ padding:10px 16px; font-size:13px; }
 }
+
+/* ═══════════════════ v8 · Cuadro comparativo con y sin PPA ═══════════════════ */
+.cmp td:nth-child(n+2), .cmp th:nth-child(n+2){ text-align:right; }
+.cmp th:first-child, .cmp td:first-child{ text-align:left; }
+.cmp-total td{
+  border-top:1.5px solid #218358 !important;
+  padding-top:12px !important;
+  font-size:1.02em;
+}
+.cmp-pos{ color:#e5484d; }      /* costo que sube = malo para el PPA */
+.cmp-neg{ color:#6e6e73; }      /* ingreso que sube = a favor del PPA, pero no alcanza */
+.cmp-no{ color:#e5484d; font-weight:600; text-align:center !important; }
+@media (max-width:720px){
+  .cmp{ font-size:13px; }
+  .cmp td, .cmp th{ padding-left:6px; padding-right:6px; }
+}

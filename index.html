@@ -209,6 +209,61 @@
         </ul>
       </div>
     </div>
+
+    <h3 class="h3 reveal">Cuánto se gana con PPA y cuánto sin PPA</h3>
+    <p class="sub reveal">El cuadro compara el resultado real del nodo en los últimos doce meses completos bajo las dos alternativas. Para que la comparación sea justa, <b>al PPA se le concede su mejor política de operación</b>: con un costo de carga fijo conviene ciclar todos los días, incluso aquellos en que el spread spot es delgado. Aun así pierde.</p>
+
+    <div class="card chart-card reveal">
+      <table class="sens-table cmp">
+        <thead>
+          <tr><th></th><th>Sin PPA · carga a spot</th><th>Con PPA de compra a 28</th><th>Diferencia</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ciclos completos en el año</td><td>340</td><td>365</td><td class="cmp-neg">+25</td></tr>
+          <tr><td>Ingreso por venta nocturna</td><td>997.905</td><td>1.086.101</td><td class="cmp-neg">+88.196</td></tr>
+          <tr><td>Costo de la energía de carga</td><td>183.167</td><td>367.920</td><td class="cmp-pos">+184.753</td></tr>
+          <tr><td>Costo de carga implícito</td><td>15,0 USD/MWh</td><td>28,0 USD/MWh</td><td>+13,0</td></tr>
+          <tr class="cmp-total"><td><b>Margen bruto del año</b></td><td class="sens-td--mark"><b>814.738</b></td><td><b>718.181</b></td><td><b>−96.557</b></td></tr>
+        </tbody>
+      </table>
+      <p class="sens-note">Cifras en US$ salvo donde se indique. Ventana de 12 meses completos, 23-may-2025 a 22-may-2026, sobre precios reales del nodo. <b>Con el PPA el proyecto cicla 25 veces más y captura US$88 mil más de ingreso — pero paga US$185 mil más por la energía de carga. El saldo son US$97 mil menos de margen al año, un 11,9%.</b></p>
+    </div>
+
+    <div class="stats">
+      <div class="stat reveal stat--accent">
+        <div class="stat__label">Lo que cuesta el PPA cada año</div>
+        <div class="stat__num">97</div>
+        <div class="stat__unit">mil US$ · 11,9% del margen</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__label">Acumulado en 10 años de deuda</div>
+        <div class="stat__num">966</div>
+        <div class="stat__unit">mil US$ que el spot deja de más</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__label">Nivel de la ventaja en años completos</div>
+        <div class="stat__num">147</div>
+        <div class="stat__unit">mil US$/año · 2023 a 2025</div>
+      </div>
+    </div>
+
+    <h3 class="h3 reveal">¿Y si el PPA fuera más barato?</h3>
+    <p class="sub reveal">La conclusión no depende del precio ofertado. Evaluado entre 22 y 34 USD/MWh, y dándole a cada caso su política óptima de operación, <b>el PPA de compra no gana en ningún punto del rango</b>.</p>
+    <div class="card chart-card reveal">
+      <table class="sens-table cmp">
+        <thead>
+          <tr><th>Precio del PPA</th><th>Margen con PPA</th><th>Margen sin PPA</th><th>Ventaja del spot</th><th>¿Conviene?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>22 USD/MWh</td><td>797.021</td><td>814.738</td><td>17.717</td><td class="cmp-no">No</td></tr>
+          <tr><td>25 USD/MWh</td><td>757.601</td><td>814.738</td><td>57.137</td><td class="cmp-no">No</td></tr>
+          <tr class="cmp-total"><td><b>28 USD/MWh</b> · oferta actual</td><td><b>718.181</b></td><td class="sens-td--mark"><b>814.738</b></td><td><b>96.557</b></td><td class="cmp-no"><b>No</b></td></tr>
+          <tr><td>31 USD/MWh</td><td>678.761</td><td>814.738</td><td>135.977</td><td class="cmp-no">No</td></tr>
+          <tr><td>34 USD/MWh</td><td>639.341</td><td>814.738</td><td>175.397</td><td class="cmp-no">No</td></tr>
+        </tbody>
+      </table>
+      <p class="sens-note">El PPA de compra cubre el riesgo de que suba el precio de compra. El proyecto es una posición vendedora: su riesgo es que caiga el precio de venta nocturno. El contrato agrega un costo fijo sin cubrir un riesgo real del activo — y por eso no mejora a ningún precio mientras persista la saturación solar diurna.</p>
+    </div>
   </div>
 </section>
 
@@ -325,8 +380,13 @@
     <div class="downloads reveal">
       <a class="dl" href="downloads/Panimavida_Brochure_v8.pdf" target="_blank" rel="noopener">
         <div class="dl__type">PDF</div>
-        <div class="dl__name">Brochure · tres páginas</div>
-        <div class="dl__sub">Lo esencial en tres páginas: la objeción de transmisión contestada, la ventana de arbitraje con escenarios y break-even, y qué contrato corresponde en cada momento.</div>
+        <div class="dl__name">Brochure · cuatro páginas</div>
+        <div class="dl__sub">Lo esencial en cuatro páginas: la objeción de transmisión contestada, la ventana de arbitraje con escenarios y break-even, el cuadro de cuánto se gana con y sin PPA, y qué contrato corresponde en cada momento.</div>
+      </a>
+      <a class="dl" href="downloads/Panimavida_Brochure_v8_EDITABLE.docx" target="_blank" rel="noopener">
+        <div class="dl__type">Word</div>
+        <div class="dl__name">Brochure editable</div>
+        <div class="dl__sub">Mismo contenido del brochure en formato Word, con tablas y gráfico editables para ajustar el texto antes de circularlo.</div>
       </a>
       <a class="dl" href="downloads/Panimavida_Ventana_Arbitraje_v8.xlsx" target="_blank" rel="noopener">
         <div class="dl__type">Excel</div>
