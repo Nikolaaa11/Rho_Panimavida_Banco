@@ -7,6 +7,11 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.chart import LineChart, Reference, Series
 
+import os as _os
+_BASE = _os.path.dirname(_os.path.abspath(__file__))
+_DATOS = _os.path.join(_BASE, 'datos')
+
+
 INK = 'FF1D1D1F'; GREY = 'FF6E6E73'; HAIR = 'FFE6E6EA'
 GREEN = 'FF218358'; GREENL = 'FF30A46C'; RED = 'FFE5484D'; AMBER = 'FFB25E09'; BLUE = 'FF0B5FFF'
 

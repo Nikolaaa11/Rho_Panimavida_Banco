@@ -4,9 +4,15 @@ import os, sys, shutil, subprocess, glob
 sys.stdout.reconfigure(encoding='utf-8')
 import openpyxl
 
+import os as _os
+_BASE = _os.path.dirname(_os.path.abspath(__file__))
+_DATOS = _os.path.join(_BASE, 'datos')
+
+
 SRC = (r'C:\Users\nicol\OneDrive\Documentos\0.2.Rho\Banco_Panimavida'
        r'\entrega_banco_v8\Panimavida_Ventana_Arbitraje_v8.xlsx')
-WORK = os.path.dirname(os.path.abspath(__file__))
+WORK = _os.path.join(_BASE, '_tmp_verify')
+os.makedirs(WORK, exist_ok=True)
 OUT = os.path.join(WORK, 'lo_out')
 SOF = r'C:\Program Files\LibreOffice\program\soffice.exe'
 

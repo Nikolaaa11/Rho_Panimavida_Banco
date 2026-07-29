@@ -1,12 +1,18 @@
 # HANDOFF — Proyecto Panimávida 13.2 kV (análisis de crédito para banco)
 
 > Documento de traspaso para retomar el proyecto en otro equipo / sesión de Claude Code.
-> Última actualización: **2026-07-29** · versión vigente: **v8.0**.
+> Última actualización: **2026-07-29** · versión vigente: **v8.2**.
 > Si lo quieres auto-cargado por Claude Code, renómbralo a `CLAUDE.md` en la raíz de trabajo.
 
 ---
 
-## 0. LEER PRIMERO — estado v8.0 (29-jul-2026)
+## 0. LEER PRIMERO
+
+> **Para trabajar desde otro equipo, usar `HANDOFF_CASA_v8.md`** — es autosuficiente e
+> incluye entorno, recetas, trampas descubiertas y las cifras canónicas. Este archivo
+> queda como referencia histórica del sitio.
+
+## 0.1 Estado v8.2 (29-jul-2026)
 
 La v8 responde las dos objeciones que frenaron el expediente en el directorio de la contraparte.
 El documento de encuadre es **`../PROMPT_MAESTRO_v8.md`** — leerlo antes de tocar nada.
@@ -68,18 +74,35 @@ adopta como titular **US$815 mil/año**: día a día, 340 ciclos, últimos 12 me
 | `../FUENTES_v8_transmision.md` | Kimal–Lo Aguirre, topología, obras del PET, con URLs |
 | `../FUENTES_v8_bess_mercado.md` | Pipeline BESS, Ley 21.505, mercado de contratos, con URLs |
 | `../entrega_banco_v8/Panimavida_Ventana_Arbitraje_v8.xlsx` | **La calculadora.** 10 hojas: Panel de palancas, escenarios, break-even, gatillos, instrumentos, transmisión, fuentes |
-| `../entrega_banco_v8/Panimavida_Brochure_v8.pdf` | Brochure de 3 páginas para banco y asesores |
-| Plataforma v8.0 | Secciones nuevas `#transmision` y `#ventana` (calculadora interactiva) |
+| `../entrega_banco_v8/Panimavida_Brochure_v8.pdf` | Brochure de 4 páginas para banco y asesores |
+| `../entrega_banco_v8/Panimavida_Brochure_v8_EDITABLE.docx` | El mismo brochure en Word, editable |
+| `glosario.html` | Glosario de 53 términos con buscador |
+| Plataforma v8.2 | Secciones `#transmision` y `#ventana` (calculadora interactiva), cuadro con PPA vs sin PPA y glosario |
 
 **Bloqueo único:** faltan CAPEX, deuda, tasa, plazo, covenant DSCR, OPEX y reserva de degradación.
 Las celdas están vacías y en rojo. **Ninguna cifra de DSCR del libro es válida hasta cargarlas.** Todo
 lo demás (margen, spread, break-even, escenarios) ya es válido y no depende de ellas.
 
 ### Reproducir los cálculos
-Los scripts quedaron en el scratchpad de la sesión: `analisis.py` y `analisis2.py` (recálculo desde
-las 38.064 horas), `build_ventana.py` (el libro), `verify.py` (recalcula el libro con LibreOffice
-headless y verifica valores — **usarlo siempre después de tocar fórmulas**), `build_brochure.py`.
-Verificado: el libro reproduce exactamente el `Resultado_Anual` del informe v7.
+Todos los scripts están versionados en **`_scripts_v8/`** de este repo, con la fuente de datos y las
+transcripciones incluidas. Corren desde cualquier equipo (rutas relativas al propio directorio):
+
+```bash
+cd _scripts_v8
+python 01_analisis_base.py          # recalcula desde las 38.064 horas
+python 02_analisis_estacionalidad.py
+python 03_ppa_vs_spot.py            # el cuadro con PPA vs sin PPA
+python 04_build_excel_ventana.py    # la calculadora
+python 05_verify_excel.py           # ⚠ VERIFICA las fórmulas con LibreOffice
+python 06_build_brochure_pdf.py
+python 07_build_brochure_word.py
+```
+
+**Regla dura:** después de tocar cualquier fórmula del Excel, correr `05_verify_excel.py`. openpyxl
+escribe fórmulas pero no las evalúa; ese verificador ya encontró un bug real que habría llegado al
+banco. Verificado: el libro reproduce exactamente el `Resultado_Anual` del informe v7.
+
+El detalle completo de entorno, recetas y trampas descubiertas está en **`HANDOFF_CASA_v8.md`**.
 
 ---
 
