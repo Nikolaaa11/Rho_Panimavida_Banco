@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glosario — Panimávida 13.2 kV · Los términos del análisis explicados</title>
+<meta name="description" content="Qué significa cada término del análisis de Panimávida: costo marginal, spread, arbitraje, NEM, CAISO, DSCR, HVDC, PMGD, vertimiento y más. Explicados en el contexto del proyecto." />
+<link rel="icon" href="assets/rho-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --ink:#1d1d1f; --grey:#6e6e73; --greyl:#86868b; --hair:#e6e6ea;
+    --green:#218358; --greenl:#30a46c; --greenbg:#f2f9f5;
+    --red:#e5484d; --redbg:#fdf2f2; --amber:#b25e09; --amberbg:#fdf6ec;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  html{ scroll-behavior:smooth; scroll-padding-top:150px; }
+  body{
+    font-family:var(--font); background:#fff; color:var(--ink);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+  }
+  .wrap{ max-width:1000px; margin:0 auto; padding:0 28px; }
+
+  /* ── NAV ── */
+  .nav{
+    position:sticky; top:0; z-index:60;
+    background:rgba(255,255,255,.82); backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--hair);
+  }
+  .nav__in{
+    max-width:1000px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+  }
+  .nav__brand{ display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--ink); }
+  .nav__brand img{ height:22px; display:block; }
+  .nav__brand span{ font-size:14px; font-weight:600; letter-spacing:-.01em; }
+  .nav__back{
+    margin-left:auto; font-size:13.5px; color:var(--green); text-decoration:none;
+    font-weight:500; white-space:nowrap;
+  }
+  .nav__back:hover{ text-decoration:underline; }
+
+  /* ── HERO ── */
+  .hero{ padding:78px 0 34px; }
+  .eyebrow{
+    font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--green); margin-bottom:16px;
+  }
+  h1{
+    font-size:clamp(34px,5.4vw,54px); font-weight:300; letter-spacing:-.028em;
+    line-height:1.06; margin-bottom:20px;
+  }
+  .lead{ font-size:18px; color:var(--grey); max-width:660px; font-weight:300; }
+  .lead b{ color:var(--ink); font-weight:600; }
+
+  /* ── BUSCADOR ── */
+  .tools{
+    position:sticky; top:57px; z-index:50; background:#fff;
+    padding:20px 0 16px; border-bottom:1px solid var(--hair);
+  }
+  .search{ position:relative; max-width:440px; }
+  .search input{
+    width:100%; font-family:var(--font); font-size:15px; color:var(--ink);
+    padding:13px 16px 13px 42px; border:1px solid var(--hair); border-radius:12px;
+    background:#fbfbfd; transition:border-color .18s, box-shadow .18s, background .18s;
+  }
+  .search input::placeholder{ color:var(--greyl); }
+  .search input:focus{
+    outline:none; border-color:var(--greenl); background:#fff;
+    box-shadow:0 0 0 4px rgba(48,164,108,.10);
+  }
+  .search svg{ position:absolute; left:15px; top:14px; width:16px; height:16px; stroke:var(--greyl); }
+  .chips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+  .chip{
+    font-size:12.5px; font-weight:500; color:var(--grey); background:#fff;
+    border:1px solid var(--hair); border-radius:980px; padding:7px 14px;
+    cursor:pointer; font-family:var(--font);
+    transition:all .16s ease;
+  }
+  .chip:hover{ color:var(--ink); border-color:#c9d8cf; }
+  .chip.on{ color:#fff; background:var(--green); border-color:var(--green); }
+  .count{ font-size:12.5px; color:var(--greyl); margin-top:12px; }
+
+  /* ── SECCIONES ── */
+  .sec{ padding:52px 0 8px; }
+  .sec__n{
+    font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--greenl);
+    text-transform:uppercase; margin-bottom:8px;
+  }
+  h2{ font-size:26px; font-weight:600; letter-spacing:-.02em; margin-bottom:8px; }
+  .sec__sub{ font-size:15px; color:var(--grey); max-width:640px; margin-bottom:26px; }
+
+  /* ── TARJETAS ── */
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(325px,1fr)); gap:16px; }
+  .card{
+    background:#fff; border:1px solid var(--hair); border-radius:16px; padding:22px 22px 20px;
+    transition:box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+  }
+  .card:hover{
+    box-shadow:0 10px 30px rgba(0,0,0,.055); transform:translateY(-2px);
+    border-color:#dcdce2;
+  }
+  .card--key{ background:var(--greenbg); border-color:#cfe7da; }
+  .card--warn{ background:var(--amberbg); border-color:#f0dcc0; }
+  .t{ font-size:17px; font-weight:600; letter-spacing:-.01em; margin-bottom:3px; }
+  .t em{ font-style:normal; color:var(--greyl); font-weight:400; font-size:13.5px; }
+  .sigla{
+    display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.06em;
+    color:var(--green); background:rgba(33,131,88,.09); padding:3px 8px;
+    border-radius:6px; margin-bottom:9px; text-transform:uppercase;
+  }
+  .d{ font-size:14.5px; color:var(--ink); margin-bottom:13px; }
+  .why{
+    font-size:13.5px; color:var(--grey); padding-top:12px;
+    border-top:1px solid rgba(0,0,0,.055);
+  }
+  .why strong{ color:var(--green); font-weight:600; display:block; font-size:11px;
+    letter-spacing:.1em; text-transform:uppercase; margin-bottom:5px; }
+  .card--key .why{ border-top-color:rgba(33,131,88,.16); }
+  .card--warn .why{ border-top-color:rgba(178,94,9,.18); }
+  .card--warn .why strong{ color:var(--amber); }
+  .num{ font-variant-numeric:tabular-nums; font-weight:600; }
+
+  .empty{
+    display:none; padding:56px 0; text-align:center; color:var(--greyl); font-size:15px;
+  }
+  .empty.on{ display:block; }
+
+  /* ── FOOTER ── */
+  footer{ margin-top:76px; border-top:1px solid var(--hair); padding:34px 0 56px; }
+  .fnote{ font-size:12.5px; color:var(--greyl); max-width:760px; }
+  .fnote a{ color:var(--green); text-decoration:none; }
+  .fnote a:hover{ text-decoration:underline; }
+  .fsrc{ font-size:11.5px; color:var(--greyl); margin-top:14px; line-height:1.8; }
+
+  @media (max-width:760px){
+    .hero{ padding:48px 0 24px; }
+    .grid{ grid-template-columns:1fr; }
+    .tools{ top:53px; padding:16px 0 12px; }
+    html{ scroll-padding-top:150px; }
+    /* Los chips pasan a scroll horizontal: si envuelven, la barra fija se come
+       media pantalla en un teléfono. */
+    .chips{
+      flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none;
+      -webkit-overflow-scrolling:touch;
+      margin-left:-28px; margin-right:-28px; padding:2px 28px;
+    }
+    .chips::-webkit-scrollbar{ display:none; }
+    .chip{ flex:0 0 auto; }
+  }
+  @media print{
+    .nav,.tools{ position:static; }
+    .card{ break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__in">
+    <a class="nav__brand" href="index.html">
+      <img src="assets/rho-full.png" alt="Rho Generación" />
+      <span>Panimávida 13,2 kV</span>
+    </a>
+    <a class="nav__back" href="index.html#ventana">← Volver al análisis</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Glosario del análisis</div>
+    <h1>Qué significa cada término.</h1>
+    <p class="lead">El expediente de Panimávida usa vocabulario de tres mundos a la vez: el del sistema eléctrico, el del mercado de contratos y el del crédito. Acá está cada término con su definición y, sobre todo, <b>por qué importa en este proyecto</b>. Las tarjetas verdes son los conceptos centrales; las amarillas, los que conviene mirar con cuidado.</p>
+  </header>
+
+  <div class="tools">
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input type="search" id="q" placeholder="Buscar un término — por ejemplo NEM, spread, DSCR…" autocomplete="off" />
+    </div>
+    <div class="chips" id="chips">
+      <button class="chip on" data-f="all" type="button">Todos</button>
+      <button class="chip" data-f="negocio" type="button">El negocio</button>
+      <button class="chip" data-f="precio" type="button">El precio de la energía</button>
+      <button class="chip" data-f="ref" type="button">Referencias internacionales</button>
+      <button class="chip" data-f="contrato" type="button">Contratos</button>
+      <button class="chip" data-f="credito" type="button">Crédito</button>
+      <button class="chip" data-f="transmision" type="button">Transmisión</button>
+      <button class="chip" data-f="regula" type="button">Instituciones y normas</button>
+      <button class="chip" data-f="metodo" type="button">Método</button>
+    </div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <!-- ══════════════ EL NEGOCIO ══════════════ -->
+  <section class="sec" data-g="negocio">
+    <div class="sec__n">01</div>
+    <h2>El negocio</h2>
+    <p class="sec__sub">Cómo gana dinero una batería que no genera energía.</p>
+    <div class="grid">
+
+      <div class="card card--key" data-k="arbitraje intradiario horario comprar barato vender caro">
+        <div class="t">Arbitraje intradiario</div>
+        <p class="d">Comprar energía en las horas del día en que está más barata, almacenarla, y venderla en las horas en que está más cara. No se produce energía: se traslada en el tiempo.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el negocio completo. Panimávida no genera: compra del nodo cuando el costo marginal cae cerca de cero al mediodía y vende en el pico de la noche.</div>
+      </div>
+
+      <div class="card card--key" data-k="spread diferencial margen">
+        <div class="t">Spread</div>
+        <p class="d">La diferencia entre el precio al que se vende y el precio al que se compra, expresada en USD por MWh. Es el margen unitario del arbitraje.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la variable que decide todo. En los últimos doce meses completos fue de <span class="num">77,5</span> USD/MWh: se vendió a <span class="num">99,6</span> y se cargó a <span class="num">22,1</span>.</div>
+      </div>
+
+      <div class="card" data-k="bess bateria almacenamiento sistema">
+        <span class="sigla">BESS</span>
+        <div class="t">Battery Energy Storage System <em>· sistema de almacenamiento por baterías</em></div>
+        <p class="d">Instalación de baterías conectada a la red que puede cargar energía y devolverla después. Se describe con dos cifras: potencia (MW, cuán rápido carga o descarga) y capacidad (MWh, cuánta energía almacena).</p>
+        <div class="why"><strong>En este proyecto</strong><span class="num">9 MW / 36 MWh</span>. La razón entre ambas da la duración: 36 ÷ 9 = <span class="num">4 horas</span> de descarga a plena potencia.</div>
+      </div>
+
+      <div class="card" data-k="ciclo completo carga descarga">
+        <div class="t">Ciclo completo</div>
+        <p class="d">Una carga total seguida de una descarga total. Se cuenta por año porque tanto el ingreso como el desgaste de las baterías dependen de cuántos ciclos se hagan.</p>
+        <div class="why"><strong>En este proyecto</strong>El caso base usa <span class="num">340</span> ciclos al año, unos 0,93 por día. Es alcanzable: en la ventana medida, el <span class="num">88%</span> de los días tuvo spread sobre 40 USD/MWh.</div>
+      </div>
+
+      <div class="card" data-k="banda solar nocturna ventana horaria franja">
+        <div class="t">Banda solar y banda nocturna</div>
+        <p class="d">Los dos bloques horarios entre los que se reparte el ciclo. La banda solar es cuando hay sol y el precio baja; la nocturna, cuando el sol se retira y el precio sube.</p>
+        <div class="why"><strong>En este proyecto</strong>Carga entre las <span class="num">09</span> y las <span class="num">17</span> h; vende entre las <span class="num">19</span> y las <span class="num">07</span> h. Cada día se eligen las 4 horas más baratas de la primera y las 4 más caras de la segunda.</div>
+      </div>
+
+      <div class="card" data-k="eficiencia round trip perdidas">
+        <div class="t">Eficiencia round-trip</div>
+        <p class="d">Qué fracción de la energía cargada se recupera al descargar. El resto se pierde en la conversión y en el propio sistema. Si se carga 100 MWh con 85% de eficiencia, se venden 85.</p>
+        <div class="why"><strong>En este proyecto</strong>Se modela <span class="num">83%</span>, deliberadamente por debajo del 88% nominal del equipo. Se cargan 36 MWh por ciclo y se venden <span class="num">29,88</span>.</div>
+      </div>
+
+      <div class="card" data-k="degradacion augmentation vida util celdas">
+        <div class="t">Degradación y <em>augmentation</em></div>
+        <p class="d">Las baterías pierden capacidad con el uso y el tiempo. La degradación es esa pérdida; el <em>augmentation</em> es agregar o reponer celdas para recuperar la capacidad original.</p>
+        <div class="why"><strong>En este proyecto</strong>Se aplica <span class="num">2%</span> anual de pérdida de capacidad sobre el volumen de venta, y se reserva un monto anual para reposición. Ese monto todavía está por definir.</div>
+      </div>
+
+      <div class="card" data-k="pronostico day ahead vector optimo despacho">
+        <div class="t">Pronóstico <em>day-ahead</em></div>
+        <p class="d">Servicio que estima, con un día de anticipación y por probabilidades, cómo se moverá el precio hora a hora. Convierte la estrategia en una instrucción operativa concreta: a qué hora cargar y a qué hora vender.</p>
+        <div class="why"><strong>En este proyecto</strong>Es lo que hace ejecutable el arbitraje. Sin él habría que operar con reglas fijas y se perdería parte del spread por cargar o vender en horas subóptimas.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ EL PRECIO DE LA ENERGÍA ══════════════ -->
+  <section class="sec" data-g="precio">
+    <div class="sec__n">02</div>
+    <h2>El precio de la energía</h2>
+    <p class="sec__sub">Por qué el mismo MWh vale casi cero al mediodía y cien en la noche.</p>
+    <div class="grid">
+
+      <div class="card card--key" data-k="costo marginal cmg precio spot">
+        <span class="sigla">CMg</span>
+        <div class="t">Costo marginal</div>
+        <p class="d">Lo que cuesta producir el siguiente MWh que el sistema necesita en ese instante y en ese lugar. Lo fija la última central que entra a operar. Si esa central es solar, su costo variable es cero y el precio cae a cero; si es una térmica a gas, el precio sube al costo de su combustible.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el precio al que el proyecto compra y vende, hora a hora. Todo el análisis se construye sobre <span class="num">38.064</span> horas reales de costo marginal del nodo.</div>
+      </div>
+
+      <div class="card card--key" data-k="spot mercado marginal sin contrato">
+        <div class="t">Operar a spot <em>· a costo marginal</em></div>
+        <p class="d">Vender y comprar al precio que marca el sistema en cada hora, sin contrato que lo fije de antemano. Lo opuesto es operar bajo contrato a precio pactado.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la decisión que se está defendiendo: ir a spot en vez de firmar un PPA de compra a 28 USD/MWh, al menos durante la ventana en que el spread es amplio.</div>
+      </div>
+
+      <div class="card" data-k="nodo barra bp1 punto de conexion">
+        <div class="t">Nodo <em>· barra</em></div>
+        <p class="d">El punto físico de la red donde se mide el precio. El costo marginal no es uno solo para todo el país: cada nodo tiene el suyo, porque la red tiene pérdidas y límites de capacidad.</p>
+        <div class="why"><strong>En este proyecto</strong>El nodo es <span class="num">BA S/E Panimávida 13,2 kV (BP1)</span>, en la Región del Maule. Su precio es el que importa — no el promedio del país ni el de Santiago.</div>
+      </div>
+
+      <div class="card" data-k="troncal transmision nacional 500 kv aguas abajo">
+        <div class="t">Troncal y niveles de tensión</div>
+        <p class="d">La red tiene jerarquías. El troncal mueve grandes bloques a 500 kV entre regiones; de ahí se baja a 220 kV y luego a niveles de distribución como 13,2 kV. Cada bajada requiere un transformador.</p>
+        <div class="why"><strong>En este proyecto</strong>El nodo del BESS está a <span class="num">13,2 kV</span>, aguas abajo del troncal de 500 kV y separado de él por dos escalones. Cualquier señal de precio que llegue al troncal se propaga atenuada hasta acá.</div>
+      </div>
+
+      <div class="card" data-k="sobreoferta saturacion solar diurna excedente">
+        <div class="t">Sobreoferta solar diurna</div>
+        <p class="d">Cuando hay más generación renovable disponible al mediodía que demanda para absorberla. El precio se desploma porque la última unidad en operar tiene costo variable cero.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la razón por la que existe la carga barata — y viene de terceros, no del proyecto. Importante: el asesor técnico precisó que el fenómeno es de <b>sobreoferta</b>, no de congestión de transmisión, como a veces se plantea.</div>
+      </div>
+
+      <div class="card" data-k="vertimiento curtailment energia desperdiciada">
+        <div class="t">Vertimiento <em>· curtailment</em></div>
+        <p class="d">Energía renovable que estaba disponible y no se usó, porque no había demanda ni forma de transportarla o almacenarla. Es la medida directa del excedente que se está desperdiciando.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el termómetro del lado carga. Entre enero y febrero de 2026 el vertimiento fue de <span class="num">1.402 GWh</span>, un <span class="num">29,3%</span> más que el año anterior: el excedente diurno sigue creciendo.</div>
+      </div>
+
+      <div class="card card--warn" data-k="minimo tecnico energia rotatoria inercia">
+        <div class="t">Mínimo técnico y energía rotatoria</div>
+        <p class="d">El sistema no puede funcionar solo con solar y viento: necesita máquinas girando que aporten inercia y estabilidad. Esas centrales deben mantenerse operando a un mínimo, aunque haya renovable de sobra.</p>
+        <div class="why"><strong>Por qué mirarlo con cuidado</strong>Es el mecanismo que el asesor técnico señaló: cuando el excedente diurno se empieza a destinar a cargar baterías, el precio del mediodía deja de ser cero. Ése es el riesgo real del proyecto — que suba el costo de carga.</div>
+      </div>
+
+      <div class="card" data-k="punta pico nocturno precio maximo">
+        <div class="t">Punta <em>· pico nocturno</em></div>
+        <p class="d">Las horas de mayor precio del día. Ocurren al anochecer, cuando la solar se retira y la demanda sigue alta, de modo que el precio queda determinado por centrales de costo variable más alto.</p>
+        <div class="why"><strong>En este proyecto</strong>Es cuando se vende. El piso de ese precio no lo fija el sol sino el combustible de la última térmica que entra — y eso es lo que sostiene el margen.</div>
+      </div>
+
+      <div class="card" data-k="desacople decoupling precios zonas congestion">
+        <div class="t">Desacople de precios <em>· decoupling</em></div>
+        <p class="d">Cuando dos zonas del sistema tienen precios distintos porque la red que las une no alcanza a transportar toda la energía que fluiría si estuvieran bien conectadas. Con suficiente transmisión, los precios converger&iacute;an.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el sustento de la ventana. La CNE proyecta que el desacople de la zona sur <b>persiste hacia 2032</b> incluso con las obras de 500 kV previstas.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ REFERENCIAS INTERNACIONALES ══════════════ -->
+  <section class="sec" data-g="ref">
+    <div class="sec__n">03</div>
+    <h2>Referencias internacionales</h2>
+    <p class="sec__sub">Los dos mercados que se citan para calibrar los escenarios, y por qué apuntan en direcciones opuestas.</p>
+    <div class="grid">
+
+      <div class="card card--warn" data-k="nem australia national electricity market escenario c estres">
+        <span class="sigla">NEM</span>
+        <div class="t">National Electricity Market <em>· Australia</em></div>
+        <p class="d">El mercado eléctrico mayorista del este y sur de Australia. Es la referencia más observada del mundo para el arbitraje con baterías, porque tiene alta penetración renovable y la mayor flota de baterías a escala de red en relación al tamaño de su sistema.</p>
+        <div class="why"><strong>Por qué mirarlo con cuidado</strong>Es el precedente de compresión abrupta: el spread cayó <span class="num">85%</span> en un año —de AU$342 a AU$51 por MWh entre el segundo trimestre de 2025 y el de 2026— mientras la flota pasaba de unos 4.360 a más de <span class="num">9.000 MW</span>. Por eso el escenario de estrés lleva su nombre y por eso el monitoreo es trimestral y no anual.</div>
+      </div>
+
+      <div class="card card--key" data-k="caiso california iso contraejemplo tb4">
+        <span class="sigla">CAISO</span>
+        <div class="t">California Independent System Operator</div>
+        <p class="d">El operador del sistema eléctrico de California. Tiene una de las mayores flotas de baterías del mundo: pasó de 500 MW en 2020 a más de 13 GW a comienzos de 2025.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el contraejemplo que equilibra al NEM: con esa penetración enorme, el spread fue de US$160/MWh en 2025 y <b>se proyecta al alza</b>, a US$240–270 hacia 2030, por retiro de centrales a gas y crecimiento de la demanda. Mucha batería no implica automáticamente que el spread muera.</div>
+      </div>
+
+      <div class="card" data-k="tb4 top bottom cuatro horas metrica spread">
+        <span class="sigla">TB4</span>
+        <div class="t"><em>Top-bottom 4 hours</em></div>
+        <p class="d">Métrica estándar internacional del spread para baterías de cuatro horas: la diferencia entre el promedio de las 4 horas más caras y las 4 más baratas del día.</p>
+        <div class="why"><strong>En este proyecto</strong>Es exactamente la métrica que se usa acá, aunque restringida a sus bandas: las 4 más caras de la noche menos las 4 más baratas del día. Permite comparar Panimávida con CAISO o el NEM.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ CONTRATOS ══════════════ -->
+  <section class="sec" data-g="contrato">
+    <div class="sec__n">04</div>
+    <h2>Contratos</h2>
+    <p class="sec__sub">La distinción que resuelve la aparente contradicción entre "no queremos PPA" y "queremos firmar un PPA en 2032".</p>
+    <div class="grid">
+
+      <div class="card" data-k="ppa power purchase agreement contrato energia">
+        <span class="sigla">PPA</span>
+        <div class="t">Power Purchase Agreement <em>· contrato de compraventa de energía</em></div>
+        <p class="d">Contrato de largo plazo que fija el precio de la energía entre dos partes, sacándolo de la variabilidad del mercado. La palabra sola no dice quién compra y quién vende — y ahí está toda la diferencia.</p>
+        <div class="why"><strong>En este proyecto</strong>Se están discutiendo dos contratos distintos que se llaman igual. Conviene nombrarlos siempre con su dirección: PPA <b>de compra</b> o instrumento <b>de venta</b>.</div>
+      </div>
+
+      <div class="card card--warn" data-k="ppa de compra 28 usd oferta actual rechazar">
+        <div class="t">PPA de compra <em>· la oferta a 28 USD/MWh</em></div>
+        <p class="d">Fija el precio al que el proyecto <b>compra</b> su energía de carga. Protege contra que suba el precio de compra.</p>
+        <div class="why"><strong>Por qué mirarlo con cuidado</strong>El proyecto es una posición vendedora: su riesgo no es que suba la compra sino que caiga la venta. Este contrato agrega un costo fijo sin cubrir un riesgo real, y cuesta <span class="num">US$97 mil</span> al año — US$966 mil en diez años. No mejora a ningún precio entre 22 y 34 USD/MWh.</div>
+      </div>
+
+      <div class="card card--key" data-k="instrumento de venta floor collar nocturno fase 2">
+        <div class="t">Instrumento de venta <em>· floor o collar nocturno</em></div>
+        <p class="d">Fija o pone un piso al precio al que el proyecto <b>vende</b> en la noche. Un <em>floor</em> garantiza un mínimo; un <em>collar</em> garantiza un mínimo a cambio de renunciar a parte del alza.</p>
+        <div class="why"><strong>En este proyecto</strong>Éste sí cubre el riesgo real del activo. Es el instrumento a negociar desde el primer año de operación y a cerrar entre 2030 y 2032, cuando ya haya historia operacional propia con que negociar.</div>
+      </div>
+
+      <div class="card" data-k="tolling agreement peaje capacidad">
+        <div class="t">Tolling agreement</div>
+        <p class="d">Un tercero paga por el derecho a usar la batería —a decidir cuándo carga y cuándo descarga— y el dueño recibe un pago fijo por capacidad. El dueño deja de capturar el spread, pero también deja de correr su riesgo.</p>
+        <div class="why"><strong>En este proyecto</strong>Es una de las salidas realistas para la fase 2, sobre todo si el spread se comprime antes de lo previsto.</div>
+      </div>
+
+      <div class="card" data-k="agregador portafolio comercializacion escala">
+        <div class="t">Agregador <em>· portafolio de comercialización</em></div>
+        <p class="d">Un actor que reúne varios proyectos pequeños y los gestiona como un solo bloque frente al mercado. Da a un proyecto chico acceso a condiciones que solo se consiguen con escala.</p>
+        <div class="why"><strong>En este proyecto</strong>Es probablemente la vía más realista. Los contratos de almacenamiento verificados en Chile son de cientos de MW con contrapartes <em>investment grade</em>; <b>no se encontró evidencia de PPA ni tolling a escala de 9 MW</b>.</div>
+      </div>
+
+      <div class="card card--warn" data-k="precio estabilizado pmgd ds 1 2026 regimen">
+        <div class="t">Precio estabilizado</div>
+        <p class="d">Régimen opcional para proyectos pequeños que permite vender a un precio regulado y predecible en vez de al costo marginal variable. Se renuncia al alza en cambio de certeza.</p>
+        <div class="why"><strong>Por qué mirarlo con cuidado</strong>Bajo el DS 1/2026, incorporar almacenamiento a un proyecto que ya optó por precio estabilizado <b>puede considerarse una modificación y hacer perder ese régimen</b>. Hay que resolverlo con el abogado regulatorio antes del Comité.</div>
+      </div>
+
+      <div class="card" data-k="investment grade grado de inversion contraparte riesgo">
+        <div class="t"><em>Investment grade</em></div>
+        <p class="d">Clasificación de riesgo que indica que una contraparte tiene alta probabilidad de cumplir sus obligaciones. Un contrato vale tanto como la solvencia de quien está al otro lado.</p>
+        <div class="why"><strong>En este proyecto</strong>Los PPA de almacenamiento firmados en Chile tienen contrapartes de este tipo — utilities y minería. Es parte de por qué esos contratos no son replicables a esta escala.</div>
+      </div>
+
+      <div class="card" data-k="posicion vendedora exposicion riesgo direccion">
+        <div class="t">Posición vendedora</div>
+        <p class="d">Estar del lado del que vende, y por lo tanto beneficiarse si el precio sube y perder si baja. Determina qué cobertura tiene sentido: se cubre el riesgo que se corre, no el contrario.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el argumento de fondo contra el PPA de compra. El proyecto gana cuando el precio nocturno sube; su riesgo es que baje. Un contrato que fija el precio de compra no cubre nada de eso.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ CRÉDITO ══════════════ -->
+  <section class="sec" data-g="credito">
+    <div class="sec__n">05</div>
+    <h2>Crédito</h2>
+    <p class="sec__sub">Cómo un banco lee si el proyecto puede pagar la deuda.</p>
+    <div class="grid">
+
+      <div class="card card--key" data-k="dscr debt service coverage ratio cobertura deuda">
+        <span class="sigla">DSCR</span>
+        <div class="t">Debt Service Coverage Ratio <em>· ratio de cobertura del servicio de la deuda</em></div>
+        <p class="d">La caja que genera el proyecto en un año dividida por lo que debe pagar de deuda ese mismo año. Un DSCR de 1,30x significa que genera un 30% más de lo que necesita. Bajo 1,00x no alcanza.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la cifra que más pesa en el Comité. Todavía no se puede calcular: faltan CAPEX, monto de deuda, tasa y plazo. En la calculadora esas celdas están vacías y marcadas en rojo a propósito.</div>
+      </div>
+
+      <div class="card" data-k="llcr loan life coverage ratio vida del prestamo">
+        <span class="sigla">LLCR</span>
+        <div class="t">Loan Life Coverage Ratio</div>
+        <p class="d">Lo mismo que el DSCR pero mirando toda la vida del préstamo de una vez: el valor presente de la caja futura dividido por la deuda pendiente. El DSCR mira un año; el LLCR mira el conjunto.</p>
+        <div class="why"><strong>En este proyecto</strong>Sirve para mostrar que un año malo no compromete el crédito si los demás lo compensan. Depende de los mismos datos que faltan.</div>
+      </div>
+
+      <div class="card card--key" data-k="break even punto de equilibrio umbral holgura">
+        <div class="t">Break-even <em>· punto de equilibrio</em></div>
+        <p class="d">El valor mínimo que una variable puede tomar antes de que el proyecto deje de cubrir sus obligaciones. Se lee al revés de un caso base: no dice cuánto se gana, dice cuánto margen de error hay.</p>
+        <div class="why"><strong>En este proyecto</strong>El spread necesario para cubrir un servicio de deuda de US$400 mil a 340 ciclos es <span class="num">43,9</span> USD/MWh, contra <span class="num">77,5</span> observado. El mercado tendría que caer un <span class="num">43%</span> antes de que duela.</div>
+      </div>
+
+      <div class="card" data-k="servicio de la deuda cuota amortizacion interes">
+        <div class="t">Servicio de la deuda</div>
+        <p class="d">El total que hay que pagar al banco en un año: amortización del capital más intereses. Es el número contra el cual se mide toda la generación de caja.</p>
+        <div class="why"><strong>En este proyecto</strong>Se modela como cuota constante. Si el financiamiento tuviera período de gracia o un perfil ajustado a la caja, hay que reemplazarlo en la calculadora.</div>
+      </div>
+
+      <div class="card" data-k="capex inversion inicial gasto capital">
+        <span class="sigla">CAPEX</span>
+        <div class="t">Inversión de capital</div>
+        <p class="d">El desembolso inicial para construir el proyecto: equipos, obras, conexión, permisos, ingeniería. Junto con el <em>gearing</em> —la fracción financiada con deuda— determina cuánta deuda hay que servir.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el dato que falta y que bloquea el DSCR. Todo el resto del análisis ya es válido y no depende de él.</div>
+      </div>
+
+      <div class="card" data-k="underwriting suscripcion criterio conservador peor caso">
+        <div class="t"><em>Underwriting</em> al peor caso</div>
+        <p class="d">Criterio de evaluación que consiste en dimensionar la deuda contra el escenario más adverso observado, no contra el promedio ni el mejor. Si el proyecto aguanta ahí, aguanta.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la postura adoptada. El ancla incluye la hidrología alta de 2025, cuando el costo de carga fue más caro — es decir, el caso se construye con el lado desfavorable ya incorporado.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ TRANSMISIÓN ══════════════ -->
+  <section class="sec" data-g="transmision">
+    <div class="sec__n">06</div>
+    <h2>Transmisión</h2>
+    <p class="sec__sub">Los términos de la objeción que frenó el expediente.</p>
+    <div class="grid">
+
+      <div class="card card--key" data-k="hvdc corriente continua alta tension linea">
+        <span class="sigla">HVDC</span>
+        <div class="t">High Voltage Direct Current <em>· corriente continua en alta tensión</em></div>
+        <p class="d">Tecnología para transportar mucha energía a través de distancias largas con menos pérdidas que la corriente alterna. Se usa como un "puente" punto a punto entre dos zonas distantes del sistema. <b>Transporta; no almacena.</b></p>
+        <div class="why"><strong>En este proyecto</strong>Que transporte y no almacene es el eje del argumento: una línea mueve energía en el espacio, pero solo el almacenamiento la mueve en el tiempo. Y el spread es un fenómeno temporal.</div>
+      </div>
+
+      <div class="card card--key" data-k="kimal lo aguirre linea objecion 2029 2030">
+        <div class="t">Kimal–Lo Aguirre</div>
+        <p class="d">Línea HVDC de ±600 kV y 3.000 MW, de 1.342 km, entre la subestación Kimal en Antofagasta y la subestación Lo Aguirre en Pudahuel, Región Metropolitana. Construcción iniciada en febrero de 2026; operación estimada entre 2029 y 2030.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la línea de la objeción. Dos hechos: <b>termina en la Región Metropolitana y no llega al Maule</b>, y transporta excedente <b>solar, que es diurno</b> — o sea que actúa sobre el costo del día, el lado de la carga, empujándolo a la baja.</div>
+      </div>
+
+      <div class="card" data-k="lo aguirre entre rios hvdc sur maule sentido contrario">
+        <div class="t">Lo Aguirre–Entre Ríos</div>
+        <p class="d">Otro proyecto HVDC, distinto del anterior, que sí atraviesa la Región del Maule. Su propósito declarado es evacuar excedente eólico del sur hacia el centro-norte.</p>
+        <div class="why"><strong>En este proyecto</strong>Va en <b>sentido contrario</b> al que preocupa: saca energía del sur en vez de traerla. Su fecha no está confirmada en fuente oficial, así que no se usa como dato — solo se declara como riesgo de largo plazo a monitorear.</div>
+      </div>
+
+      <div class="card" data-k="pet plan de expansion transmision cne obras">
+        <span class="sigla">PET</span>
+        <div class="t">Plan de Expansión de la Transmisión</div>
+        <p class="d">Instrumento anual con que la autoridad define qué obras de transmisión deben construirse y en qué plazo. Es la fuente oficial para saber qué se va a reforzar y cuándo.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la fuente del dato más potente del expediente: el Informe Final del PET 2026 proyecta que el desacople de la zona sur <b>persiste hacia 2032</b>. Su actualización anual es uno de los gatillos de monitoreo.</div>
+      </div>
+
+      <div class="card" data-k="refuerzo obra ampliacion subestacion capacidad">
+        <div class="t">Refuerzo de transmisión</div>
+        <p class="d">Obra que aumenta la capacidad de transporte de un corredor existente: una línea adicional, un transformador más grande, una subestación ampliada. Reduce la congestión y acerca los precios entre zonas.</p>
+        <div class="why"><strong>En este proyecto</strong>Un refuerzo relevante en el corredor centro-sur acercaría el precio del nodo al del troncal y comprimiría el spread. Por eso su entrada en operación es un gatillo explícito.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ INSTITUCIONES Y NORMAS ══════════════ -->
+  <section class="sec" data-g="regula">
+    <div class="sec__n">07</div>
+    <h2>Instituciones y normas</h2>
+    <p class="sec__sub">Quién publica los datos y qué reglas aplican a un proyecto de este tamaño.</p>
+    <div class="grid">
+
+      <div class="card" data-k="cen coordinador electrico nacional operador datos">
+        <span class="sigla">CEN</span>
+        <div class="t">Coordinador Eléctrico Nacional</div>
+        <p class="d">El organismo que opera el sistema eléctrico chileno: decide qué central genera en cada momento y publica los precios resultantes. Es la fuente oficial de los datos de costo marginal.</p>
+        <div class="why"><strong>En este proyecto</strong>Todo el análisis viene de sus registros. También es la contraparte con la que se coordina la carga y descarga diaria.</div>
+      </div>
+
+      <div class="card" data-k="cne comision nacional de energia regulador">
+        <span class="sigla">CNE</span>
+        <div class="t">Comisión Nacional de Energía</div>
+        <p class="d">El regulador técnico del sector: fija tarifas, dicta normas técnicas y elabora el Plan de Expansión de la Transmisión.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la fuente de las proyecciones de transmisión y de la norma que habilita a un proyecto pequeño con almacenamiento a coordinarse con el Coordinador.</div>
+      </div>
+
+      <div class="card" data-k="real definitivo dato oficial cierre revisado">
+        <div class="t">Real Definitivo</div>
+        <p class="d">La versión final y revisada de los datos de operación que publica el Coordinador, una vez cerrados todos los ajustes. Es el dato auditable, no una estimación preliminar.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la versión usada en las <span class="num">38.064</span> horas del análisis. Importa para el Comité: son cifras verificables, no estimaciones del sponsor.</div>
+      </div>
+
+      <div class="card" data-k="pmgd pmg pequenos medios generacion distribuida">
+        <span class="sigla">PMGD / PMG</span>
+        <div class="t">Pequeños Medios de Generación</div>
+        <p class="d">Régimen para proyectos de baja potencia conectados a redes de distribución. Tiene reglas simplificadas de conexión y opciones de comercialización que no están disponibles para proyectos grandes.</p>
+        <div class="why"><strong>En este proyecto</strong>Panimávida entra en esta categoría con sus 9 MW. Define qué contratos puede tomar y cómo se coordina con el Coordinador.</div>
+      </div>
+
+      <div class="card" data-k="ley 21505 almacenamiento electromovilidad">
+        <div class="t">Ley 21.505</div>
+        <p class="d">Ley chilena de almacenamiento y electromovilidad, publicada en noviembre de 2022. Reconoce el almacenamiento como actividad propia del sistema y habilita su remuneración.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el marco que hace viable el negocio. Su reglamentación completa lleva retraso: la parte de remuneración por potencia y servicios complementarios sigue en trámite, así que no se cifran ingresos por ese concepto.</div>
+      </div>
+
+      <div class="card" data-k="ntco pmgd norma tecnica conexion operacion capitulo 9">
+        <div class="t">NTCO-PMGD</div>
+        <p class="d">Norma Técnica de Conexión y Operación para proyectos pequeños. Su versión de febrero de 2026 incorporó un capítulo específico para los que tienen almacenamiento.</p>
+        <div class="why"><strong>En este proyecto</strong>Respalda una afirmación clave: que un proyecto de 9 MW <b>puede coordinar su carga y descarga diaria con el Coordinador</b>. Ya no es una aspiración — está en norma vigente y citable.</div>
+      </div>
+
+      <div class="card" data-k="rca resolucion calificacion ambiental permiso sea">
+        <span class="sigla">RCA</span>
+        <div class="t">Resolución de Calificación Ambiental</div>
+        <p class="d">La aprobación ambiental que un proyecto necesita para construirse. Tenerla es un hito, pero no equivale a estar construido ni operando.</p>
+        <div class="why"><strong>En este proyecto</strong>Es central para leer el pipeline de competencia: hay una distancia grande entre anunciado, con RCA, en construcción y en operación. Confundirlas lleva a sobreestimar cuánta batería habrá y cuándo.</div>
+      </div>
+
+      <div class="card" data-k="sscc servicios complementarios potencia ingresos adicionales">
+        <span class="sigla">SSCC</span>
+        <div class="t">Servicios complementarios</div>
+        <p class="d">Servicios que el sistema necesita más allá de la energía: reserva de frecuencia, control de tensión, respaldo rápido. Se remuneran aparte y las baterías son especialmente buenas prestándolos.</p>
+        <div class="why"><strong>En este proyecto</strong>Podrían ser un ingreso adicional al arbitraje, pero <b>no se incluye ninguna cifra</b>: no se encontró un valor oficial aplicable a un proyecto de esta escala. Es upside no contabilizado.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ MÉTODO ══════════════ -->
+  <section class="sec" data-g="metodo">
+    <div class="sec__n">08</div>
+    <h2>Método</h2>
+    <p class="sec__sub">Las decisiones de cálculo que hacen que las cifras sean comparables y defendibles.</p>
+    <div class="grid">
+
+      <div class="card card--key" data-k="ventana doce meses completos movil ancla estacionalidad">
+        <div class="t">Ventana de 12 meses completos</div>
+        <p class="d">Medir siempre sobre un año entero, aunque no coincida con el año calendario. Un período parcial mezcla estaciones y no es comparable con un año completo.</p>
+        <div class="why"><strong>En este proyecto</strong>Es el ancla del modelo: del <span class="num">23-may-2025</span> al <span class="num">22-may-2026</span>. Se eligió porque los años calendario disponibles incluyen un 2026 incompleto que además cae en el semestre favorable, lo que habría inflado el resultado.</div>
+      </div>
+
+      <div class="card" data-k="percentil p10 distribucion piso peor caso">
+        <div class="t">Percentil <em>· P10</em></div>
+        <p class="d">El valor por debajo del cual queda un porcentaje dado de las observaciones. El P10 es el valor que solo el 10% de los días no alcanza: describe el piso, no el centro.</p>
+        <div class="why"><strong>En este proyecto</strong>Es la alternativa a hablar de promedios. En la ventana ancla el P10 del precio de venta fue <span class="num">58,5</span> USD/MWh, y el peor día de todo el año fue <span class="num">48,8</span>.</div>
+      </div>
+
+      <div class="card" data-k="escenario proyeccion supuesto compresion variable">
+        <div class="t">Escenario</div>
+        <p class="d">Una proyección construida sobre supuestos explícitos y declarados, no una predicción. Su valor está en dejar visible qué tendría que pasar para que el resultado cambie.</p>
+        <div class="why"><strong>En este proyecto</strong>Los tres escenarios se mueven con una sola variable —cuándo y a qué velocidad se comprime el spread— y modelan los dos lados: la venta baja y la carga sube.</div>
+      </div>
+
+      <div class="card card--key" data-k="gatillo trigger umbral monitoreo politica accion">
+        <div class="t">Gatillo <em>· trigger</em></div>
+        <p class="d">Un indicador con un umbral definido de antemano y una acción asociada. Cuando el indicador cruza el umbral, la acción se ejecuta sin volver a discutir la decisión de fondo.</p>
+        <div class="why"><strong>En este proyecto</strong>Es lo que convierte la decisión de ir a spot en una <b>política monitoreada</b> en vez de una apuesta. Son seis, con métrica, fuente, umbral y acción, revisados trimestralmente.</div>
+      </div>
+
+      <div class="card card--warn" data-k="anualizar extrapolar dato parcial sesgo estacional">
+        <div class="t">Anualizar un período parcial</div>
+        <p class="d">Extrapolar unos meses a un año completo. Es válido solo si esos meses son representativos; si caen en una estación favorable, el resultado queda sobreestimado.</p>
+        <div class="why"><strong>Por qué mirarlo con cuidado</strong>En este nodo el primer semestre es sistemáticamente mejor que el segundo. Anualizar enero–mayo habría inflado el caso, y por eso el ancla es una ventana de doce meses completos y no un 2026 extrapolado.</div>
+      </div>
+
+      <div class="card" data-k="dia a dia seleccion diaria covarianza vs promedio">
+        <div class="t">Cálculo día a día</div>
+        <p class="d">Calcular el resultado de cada día con sus propios precios y después sumar, en vez de multiplicar un precio representativo por el volumen anual. Los dos métodos dan cifras distintas.</p>
+        <div class="why"><strong>En este proyecto</strong>Explica por qué el expediente tenía dos números: <span class="num">US$493 mil</span> con el método de precio por volumen y <span class="num">US$815 mil</span> día a día. Ambos correctos; el segundo es el que se adopta, y la diferencia se declara.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <p class="empty" id="empty">No hay términos que coincidan con esa búsqueda.</p>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="fnote">Este glosario acompaña el análisis de crédito de <a href="index.html">Panimávida 13,2 kV</a>. Las definiciones son explicativas; las cifras que aparecen provienen del mismo expediente y de las fuentes citadas abajo. Donde no existe un dato oficial verificable —como la remuneración por servicios complementarios a esta escala— se dice explícitamente en vez de estimarlo.</p>
+    <p class="fsrc">
+      Coordinador Eléctrico Nacional, versión Real Definitivo · nodo BA S/E Panimávida 13,2 kV (BP1) · 38.064 horas, 2022–2026<br/>
+      Comisión Nacional de Energía · Informe Final del Plan de Expansión de la Transmisión 2026<br/>
+      CNE · Norma Técnica de Conexión y Operación de PMGD, febrero de 2026 · ACERA · Energy-Storage.News · Modo Energy<br/>
+      RHO Generación · FIP CEHTA Capital · Versión 8.1
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var chips = document.querySelectorAll('.chip');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var secs  = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+  var empty = document.getElementById('empty');
+  var count = document.getElementById('count');
+  var filt = 'all';
+
+  function norm(s){
+    return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  }
+
+  function apply(){
+    var term = norm(q.value.trim());
+    var shown = 0;
+    cards.forEach(function(c){
+      var sec = c.closest('.sec');
+      var okG = filt === 'all' || sec.getAttribute('data-g') === filt;
+      var hay = norm(c.getAttribute('data-k') + ' ' + c.textContent);
+      var okT = !term || hay.indexOf(term) !== -1;
+      var vis = okG && okT;
+      c.style.display = vis ? '' : 'none';
+      if (vis) shown++;
+    });
+    secs.forEach(function(s){
+      var any = s.querySelectorAll('.card:not([style*="display: none"])').length;
+      s.style.display = any ? '' : 'none';
+    });
+    empty.classList.toggle('on', shown === 0);
+    count.textContent = shown === cards.length
+      ? cards.length + ' términos'
+      : shown + ' de ' + cards.length + ' términos';
+  }
+
+  q.addEventListener('input', apply);
+  chips.forEach(function(b){
+    b.addEventListener('click', function(){
+      chips.forEach(function(x){ x.classList.remove('on'); });
+      b.classList.add('on');
+      filt = b.getAttribute('data-f');
+      apply();
+    });
+  });
+  // Escape limpia la búsqueda
+  q.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){ q.value = ''; apply(); q.blur(); }
+  });
+  apply();
+})();
+</script>
+
+</body>
+</html>
