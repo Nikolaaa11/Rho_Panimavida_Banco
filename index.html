@@ -22,6 +22,8 @@
     <a href="#carga">Costo de carga</a>
     <a href="#venta">Precio máximo</a>
     <a href="#proyeccion">Proyección</a>
+    <a href="#transmision">Transmisión</a>
+    <a href="#ventana">Ventana 2027–35</a>
     <a href="#propuesta">Recomendación</a>
     <a href="#descargas">Descargas</a>
   </div>
@@ -38,7 +40,7 @@
     <p class="hero__sub reveal">Panimávida es una batería —sistema de almacenamiento (BESS) de 9 MW / 36 MWh— que compra energía cuando el nodo vale $0 y la vende cuando alcanza su precio más alto del día. Lo que importa son dos datos concretos: <b>cuántas horas la energía es gratis</b> y <b>cuánto llega a valer en el pico</b>.<br/><span style="color:#86868b;">Material para el Comité de Crédito · 29.304 horas reales del Coordinador Eléctrico Nacional.</span></p>
     <div class="hero__cta reveal">
       <a href="#cero" class="btn btn--primary">Ver el análisis</a>
-      <span class="hero__meta">Período 2023 — 2026 · Versión 7.0</span>
+      <span class="hero__meta">Período 2022 — 2026 · Versión 8.0</span>
     </div>
   </div>
   <a href="#modelo" class="scroll-hint" aria-label="Bajar"><span></span></a>
@@ -210,6 +212,95 @@
   </div>
 </section>
 
+<!-- ══════════════ v8 · LA OBJECIÓN DE TRANSMISIÓN ══════════════ -->
+<section class="section" id="transmision">
+  <div class="wrap">
+    <div class="tag reveal">La objeción, contestada</div>
+    <h2 class="h2 reveal">No está cayendo lo que se cree que está cayendo</h2>
+    <p class="sub reveal">La preocupación planteada es que la línea HVDC Kimal–Lo Aguirre haga bajar el precio de venta nocturno del nodo. Los datos del propio nodo, medidos en ventanas de doce meses completos, muestran otra cosa: <b>el precio de venta nocturno está plano desde hace tres años</b>. Lo que se movió es el costo de cargar de día.</p>
+
+    <div class="card chart-card reveal">
+      <table class="sens-table w12">
+        <thead>
+          <tr><th>Ventana de 12 meses completos</th><th>Costo de carga</th><th>Precio de venta</th><th>Spread</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2022 – 2023</td><td>37,7</td><td>200,0</td><td>162,3</td></tr>
+          <tr><td>2023 – 2024</td><td>12,3</td><td class="sens-td--mark">108,2</td><td>96,0</td></tr>
+          <tr><td>2024 – 2025</td><td>10,1</td><td class="sens-td--mark">98,2</td><td>88,1</td></tr>
+          <tr><td><b>2025 – 2026</b></td><td><b>22,1</b></td><td class="sens-td--mark"><b>99,6</b></td><td><b>77,5</b></td></tr>
+        </tbody>
+      </table>
+      <p class="sens-note">Precio de venta: <b>108,2 → 98,2 → 99,6 USD/MWh</b>. Costo de carga: <b>10,1 → 22,1</b> en la última ventana. El alza del costo de carga explica prácticamente toda la compresión reciente del spread.</p>
+    </div>
+
+    <div class="paths">
+      <div class="path path--bad reveal">
+        <div class="path__head"><span class="path__icon">?</span> Lo que se teme</div>
+        <ul>
+          <li>Que el HVDC traiga energía del norte y hunda el precio de venta nocturno.</li>
+          <li>Que el proyecto quede expuesto a un mercado que se derrumba.</li>
+          <li class="path__kick path__kick--bad">El registro del nodo no muestra ese deterioro en el lado venta.</li>
+        </ul>
+      </div>
+      <div class="path path--good reveal">
+        <div class="path__head"><span class="path__icon">✓</span> Lo que muestran los datos y las fuentes</div>
+        <ul>
+          <li>La línea termina en <b>Lo Aguirre, Región Metropolitana</b>: no llega al Maule. Su entrada se estima en 2029–2030.</li>
+          <li>Transporta excedente <b>solar diurno</b>. Actúa sobre el costo marginal del día, no sobre el pico de la noche.</li>
+          <li>Es decir, empuja a la baja el <b>costo de carga</b>, que es el lado donde está el riesgo real.</li>
+          <li>La CNE proyecta que el <b>desacople de la zona sur persiste hacia 2032</b> incluso con las obras de 500 kV.</li>
+          <li class="path__kick path__kick--good">Sobre la evidencia disponible, esa línea es viento de cola, no de frente.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="sub reveal src-note">El riesgo verdadero es el señalado por el asesor técnico: que el costo de carga suba a medida que baja el vertimiento y las baterías compiten por el excedente del mediodía. Está incorporado como gatillo de monitoreo. Fuentes: Coordinador Eléctrico Nacional; CNE, Informe Final PET2026; ACERA.</p>
+  </div>
+</section>
+
+<!-- ══════════════ v8 · VENTANA DE ARBITRAJE ══════════════ -->
+<section class="section section--soft" id="ventana">
+  <div class="wrap">
+    <div class="tag reveal">Mirada 2027 – 2035</div>
+    <h2 class="h2 reveal">Hasta cuándo conviene operar a costo marginal</h2>
+    <p class="sub reveal">Una sola variable manda: la velocidad con que el almacenamiento del sistema llega a comprimir este nodo. Se modela por los dos lados —la venta baja y la carga sube— y se compara contra el spread mínimo necesario para pagar la deuda. Elija un escenario para mover la proyección.</p>
+
+    <div class="esc-picker reveal" role="group" aria-label="Selector de escenario">
+      <button class="esc-btn" data-esc="A" type="button">A · Ventana amplia</button>
+      <button class="esc-btn is-on" data-esc="B" type="button">B · Base</button>
+      <button class="esc-btn" data-esc="C" type="button">C · Estrés tipo NEM</button>
+    </div>
+    <p class="esc-just reveal" id="escJust"></p>
+
+    <div class="stats">
+      <div class="stat reveal stat--accent">
+        <div class="stat__label">Margen bruto · últimos 12 meses reales</div>
+        <div class="stat__num" id="vMargen">815</div>
+        <div class="stat__unit">mil US$/año · 340 ciclos · no es proyección</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__label">Spread que se necesita para pagar la deuda</div>
+        <div class="stat__num">43,9</div>
+        <div class="stat__unit">USD/MWh · contra 77,5 observado</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat__label">Año en que este escenario cruza ese umbral</div>
+        <div class="stat__num" id="vCruce">2034</div>
+        <div class="stat__unit">borde de la ventana</div>
+      </div>
+    </div>
+
+    <div class="card chart-card reveal">
+      <div id="chartVentana" class="chart"></div>
+    </div>
+
+    <div class="trend-foot reveal">
+      El almacenamiento del país es real y avanza rápido: <b>2.283 MW</b> en operación y <b>6.358 MW</b> en construcción. Pero está concentrado en el norte —<b>Antofagasta 44%, Atacama 23%</b>— y <b>el Maule no figura</b> en el desglose. La brecha que aprovecha el proyecto es locacional, no temporal.
+    </div>
+  </div>
+</section>
+
 <!-- PROPUESTA -->
 <section class="section propuesta" id="propuesta">
   <div class="prop-glow"></div>
@@ -229,9 +320,14 @@
 <section class="section" id="descargas">
   <div class="wrap">
     <div class="tag reveal">Paquete documental</div>
-    <h2 class="h2 reveal">Material para el Comité de Crédito · Versión 7.0</h2>
+    <h2 class="h2 reveal">Material para el Comité de Crédito · Versión 8.0</h2>
     <p class="sub reveal">El paquete está disponible en tres formatos, con idéntica base de datos y conclusiones.</p>
     <div class="downloads reveal">
+      <a class="dl" href="downloads/Panimavida_Ventana_Arbitraje_v8.xlsx" target="_blank" rel="noopener">
+        <div class="dl__type">Excel</div>
+        <div class="dl__name">Ventana de arbitraje · calculadora</div>
+        <div class="dl__sub">Panel de palancas editables · escenarios de compresión 2027–2035, break-even, gatillos de monitoreo, mapa de transmisión y fuentes.</div>
+      </a>
       <a class="dl" href="downloads/Panimavida_Resumen_Ejecutivo_v7.pdf" target="_blank" rel="noopener">
         <div class="dl__type">PDF</div>
         <div class="dl__name">Resumen ejecutivo</div>
@@ -263,7 +359,7 @@
     <img src="assets/rho-full.png" alt="Rho Generación" class="footer__logo" />
     <div class="footer__txt">
       <p><b>Rho Generación · Cehta Capital</b> — Análisis crediticio del proyecto Panimávida 13.2 kV (BESS 9 MW / 36 MWh).</p>
-      <p class="footer__muted">Fuente: Coordinador Eléctrico Nacional, versión Real Definitivo · Período 2023 — 2026 (29.304 horas reales) · Versión 7.0.</p>
+      <p class="footer__muted">Fuente: Coordinador Eléctrico Nacional, versión Real Definitivo · Período 2022 — 2026 (38.064 horas reales · 1.586 días) · Versión 8.0.</p>
     </div>
   </div>
 </footer>

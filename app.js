@@ -181,7 +181,93 @@
     charts.push(c);
   }
 
-  var chartInit = { chartCount: initCount, chartCargaCosto: initCargaCosto, chartHeat: initHeat, chartVenta: initVenta, chartMensual: initMensual };
+  /* ═══════════ v8 · Ventana de arbitraje 2027–2035 ═══════════ */
+  var vChart = null, vEsc = "B";
+  var ESCCOL = { A: "#218358", B: "#30a46c", C: "#e5484d" };
+
+  function ventanaOption() {
+    var V = D.ventana, be = V.breakeven;
+    var series = ["A", "B", "C"].map(function (k) {
+      var on = k === vEsc;
+      return {
+        name: "Escenario " + k + " · " + V.esc[k].nombre,
+        type: "line", data: V.esc[k].spread,
+        smooth: false, symbol: "circle", symbolSize: on ? 7 : 0,
+        z: on ? 5 : 2,
+        lineStyle: { width: on ? 3.4 : 1.6, color: ESCCOL[k], opacity: on ? 1 : 0.3 },
+        itemStyle: { color: ESCCOL[k], opacity: on ? 1 : 0.3 },
+        areaStyle: on ? { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: "rgba(48,164,108,.22)" }, { offset: 1, color: "rgba(48,164,108,.01)" }]) } : null,
+        markLine: on ? {
+          silent: true, symbol: "none",
+          lineStyle: { color: RED, type: "dashed", width: 1.6 },
+          label: { formatter: "break-even  " + String(be).replace(".", ",") + " USD/MWh",
+                   color: RED, fontFamily: FONT, fontSize: 12, position: "insideEndTop" },
+          data: [{ yAxis: be }]
+        } : null
+      };
+    });
+    return {
+      grid: { left: 58, right: 30, top: 52, bottom: 46 },
+      legend: { top: 8, icon: "roundRect", itemWidth: 12, itemHeight: 4,
+                textStyle: { color: GRAY, fontFamily: FONT, fontSize: 12 } },
+      tooltip: { trigger: "axis", backgroundColor: "rgba(255,255,255,.96)", borderColor: "#e4e8e3",
+        borderWidth: 1, textStyle: { color: INK, fontFamily: FONT },
+        formatter: function (ps) {
+          var s = "<b>" + ps[0].axisValue + "</b><br/>";
+          ps.forEach(function (p) {
+            s += p.marker + " " + p.seriesName.split(" · ")[0] + ": <b>" +
+                 String(p.data).replace(".", ",") + "</b> USD/MWh<br/>";
+          });
+          return s + '<span style="color:#e5484d">break-even ' +
+                 String(D.ventana.breakeven).replace(".", ",") + "</span>";
+        } },
+      xAxis: Object.assign({ type: "category", data: D.ventana.anios, boundaryGap: false,
+        axisLabel: { color: GRAY, fontFamily: FONT, fontSize: 12 } },
+        { axisLine: { lineStyle: { color: "#e4e8e3" } }, axisTick: { show: false }, splitLine: { show: false } }),
+      yAxis: Object.assign({ type: "value", name: "Spread · USD/MWh",
+        nameTextStyle: { color: GRAY, fontFamily: FONT }, min: 0, max: 90 }, axisCommon()),
+      series: series,
+      animationDuration: 1100, animationEasing: "cubicOut"
+    };
+  }
+
+  function paintVentana() {
+    var V = D.ventana, e = V.esc[vEsc];
+    var just = document.getElementById("escJust");
+    if (just) just.textContent = e.just;
+    var cr = document.getElementById("vCruce");
+    if (cr) cr.textContent = e.cruce ? e.cruce : "no cruza al 2035";
+    document.querySelectorAll(".esc-btn").forEach(function (b) {
+      b.classList.toggle("is-on", b.getAttribute("data-esc") === vEsc);
+      b.setAttribute("aria-pressed", b.getAttribute("data-esc") === vEsc ? "true" : "false");
+    });
+    if (vChart) vChart.setOption(ventanaOption(), true);
+  }
+
+  function initVentana() {
+    var el = document.getElementById("chartVentana");
+    if (!el || !D.ventana) return;
+    vChart = echarts.init(el, null, { renderer: "canvas" });
+    vChart.setOption(ventanaOption());
+    charts.push(vChart);
+    paintVentana();
+  }
+
+  document.querySelectorAll(".esc-btn").forEach(function (b) {
+    b.addEventListener("click", function () {
+      vEsc = b.getAttribute("data-esc");
+      paintVentana();
+    });
+  });
+  (function () {
+    var m = document.getElementById("vMargen");
+    if (m && D.ventana) m.textContent = Math.round(D.ventana.ancla.margen / 1000).toLocaleString("es-CL");
+    var j = document.getElementById("escJust");
+    if (j && D.ventana) j.textContent = D.ventana.esc[vEsc].just;
+  })();
+
+  var chartInit = { chartCount: initCount, chartCargaCosto: initCargaCosto, chartHeat: initHeat, chartVenta: initVenta, chartMensual: initMensual, chartVentana: initVentana };
   var done = {};
   var chartObs = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
