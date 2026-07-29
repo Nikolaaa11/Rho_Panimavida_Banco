@@ -1,8 +1,85 @@
 # HANDOFF — Proyecto Panimávida 13.2 kV (análisis de crédito para banco)
 
 > Documento de traspaso para retomar el proyecto en otro equipo / sesión de Claude Code.
-> Última actualización: **2026-06-02** · versión vigente: **v7.0**.
+> Última actualización: **2026-07-29** · versión vigente: **v8.0**.
 > Si lo quieres auto-cargado por Claude Code, renómbralo a `CLAUDE.md` en la raíz de trabajo.
+
+---
+
+## 0. LEER PRIMERO — estado v8.0 (29-jul-2026)
+
+La v8 responde las dos objeciones que frenaron el expediente en el directorio de la contraparte.
+El documento de encuadre es **`../PROMPT_MAESTRO_v8.md`** — leerlo antes de tocar nada.
+
+### El hallazgo que reorienta todo el caso
+
+Medido en **ventanas de 12 meses completos** (no años calendario, que mezclan estacionalidad):
+
+| Ventana | Carga | Venta | Spread |
+|---|---|---|---|
+| 23-may-2023 → 22-may-2024 | 12,3 | 108,2 | 96,0 |
+| 23-may-2024 → 22-may-2025 | 10,1 | 98,2 | 88,1 |
+| **23-may-2025 → 22-may-2026** ← ANCLA | **22,1** | **99,6** | **77,5** |
+
+**El precio de venta nocturno está PLANO en 98–100 USD/MWh desde hace tres años.** Lo que se movió
+—y explica casi toda la compresión reciente del spread— es el **costo de carga**, que subió de 10,1 a
+22,1 USD/MWh.
+
+Consecuencia: el director del banco teme que Kimal–Lo Aguirre baje el precio de **venta**. El dato
+dice que la venta no viene cayendo. Y esa línea actúa sobre el costo marginal **diurno**, es decir
+sobre el lado de la **carga**, empujándolo **a la baja**. **Sobre la evidencia disponible, la línea
+que se teme es viento de cola para el riesgo real, no viento de frente.**
+
+### ⚠️ Correcciones de hechos que hay que respetar
+
+1. **NO decir "el precio de venta nunca bajó de 50 USD/MWh".** Es falso: era un artefacto de filtrar
+   solo ene–may. El enunciado correcto es **"el 99,2% de los 1.586 días estuvo en o sobre 50
+   USD/MWh"** (12 días por debajo; mínimo absoluto 0,0 el 30-oct-2022).
+2. **NO decir que el pipeline de BESS "no es tangible".** Es falso a nivel nacional: **2.283 MW en
+   operación** (mar-2026), proyección de **5.081 MW** a dic-2026, **6.358 MW en construcción**, y
+   Chile superó los 2 GW en enero de 2026, **cuatro años antes de lo previsto**. La brecha real es
+   **LOCACIONAL**: ~86% del MW en construcción está en el norte (Antofagasta 44%, Atacama 23%) y **el
+   Maule no figura**. Ése sí es un argumento defendible.
+3. **NO prometer "un PPA en 2032".** No existe mercado de PPA ni tolling de almacenamiento a escala
+   PMG (<10 MW) en Chile; los contratos verificados son de cientos de MW con contrapartes investment
+   grade. Hablar de **instrumentos de venta alternativos** (agregador, floor/collar nocturno, tolling,
+   precio estabilizado).
+4. **Riesgo regulatorio nuevo, no resuelto:** bajo **DS 1/2026**, incorporar BESS a un PMGD que ya
+   optó por precio estabilizado se considera "modificación" y **puede hacer perder el precio
+   estabilizado**. Consultar al abogado regulatorio **antes** del Comité.
+
+### Cifra titular unificada
+El expediente tenía dos números en conflicto: **US$493 mil/año** (informe v7: precio-nivel × volumen,
+182 ciclos) y **≈US$0,9 M/año** (correo enviado). Ambos son correctos bajo su propio método. La v8
+adopta como titular **US$815 mil/año**: día a día, 340 ciclos, últimos 12 meses completos y reales.
+**Hay que declarar la diferencia antes de que la encuentren.**
+
+### Reglas de oro nuevas de la v8
+5. **Underwriting al peor dato, no al promedio.** El ancla es la última ventana de 12 meses (que
+   además incluye la hidrología alta de 2025, o sea que el costo de carga está tomado por lo alto).
+6. **Toda debilidad se divulga antes de que la encuentren** (2026 parcial y en el semestre favorable;
+   2024 le faltan 17 días; la base termina el 22-may-2026).
+7. **Cada cifra con fuente y fecha.** Lo marcado NO VERIFICADO no se publica.
+
+### Entregables v8
+| Archivo | Qué es |
+|---|---|
+| `../PROMPT_MAESTRO_v8.md` | Documento de encuadre. Si un número no está aquí, no se publica |
+| `../FUENTES_v8_transmision.md` | Kimal–Lo Aguirre, topología, obras del PET, con URLs |
+| `../FUENTES_v8_bess_mercado.md` | Pipeline BESS, Ley 21.505, mercado de contratos, con URLs |
+| `../entrega_banco_v8/Panimavida_Ventana_Arbitraje_v8.xlsx` | **La calculadora.** 10 hojas: Panel de palancas, escenarios, break-even, gatillos, instrumentos, transmisión, fuentes |
+| `../entrega_banco_v8/Panimavida_Brochure_v8.pdf` | Brochure de 3 páginas para banco y asesores |
+| Plataforma v8.0 | Secciones nuevas `#transmision` y `#ventana` (calculadora interactiva) |
+
+**Bloqueo único:** faltan CAPEX, deuda, tasa, plazo, covenant DSCR, OPEX y reserva de degradación.
+Las celdas están vacías y en rojo. **Ninguna cifra de DSCR del libro es válida hasta cargarlas.** Todo
+lo demás (margen, spread, break-even, escenarios) ya es válido y no depende de ellas.
+
+### Reproducir los cálculos
+Los scripts quedaron en el scratchpad de la sesión: `analisis.py` y `analisis2.py` (recálculo desde
+las 38.064 horas), `build_ventana.py` (el libro), `verify.py` (recalcula el libro con LibreOffice
+headless y verifica valores — **usarlo siempre después de tocar fórmulas**), `build_brochure.py`.
+Verificado: el libro reproduce exactamente el `Resultado_Anual` del informe v7.
 
 ---
 
